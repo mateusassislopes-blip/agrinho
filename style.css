@@ -1,0 +1,33 @@
+.fundo{
+    background: rgb(0, 0, 0);
+}
+.titulo{
+    color:rgb(0, 0, 0)
+}
+.subt{
+    color:rgb(53, 51, 51)
+}
+.ano{
+    color:aqua
+}
+.titulo{
+     font-size: 90px;
+}
+.subt{
+     font-size: 30px;
+}
+.ano{
+     font-size: 50px;
+}
+.quadro{
+    text-align: left;
+     width: 100%;              
+    height: auto;             
+    background-color: rgb(39, 118, 37);  
+    display: flow-root; 
+    padding-right: 500px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box; 
+}
