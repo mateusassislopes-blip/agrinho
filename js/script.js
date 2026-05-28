@@ -54,6 +54,8 @@ const fecharModal = document.querySelector("#fecharModal");
 const botaoTema = document.querySelector("#alternarTema");
 const botaoAumentarFonte = document.querySelector("#aumentarFonte");
 const botaoDiminuirFonte = document.querySelector("#diminuirFonte");
+const botaoMenu = document.querySelector("#botaoMenu");
+const menu = document.querySelector(".menu");
 
 // Esta variável controla o tamanho das letras. O valor 100 representa 100%.
 let tamanhoFonte = 100;
@@ -131,4 +133,24 @@ botaoTema.addEventListener("click", () => {
     const escuroAtivo = document.body.classList.contains("modo-escuro");
     botaoTema.textContent = escuroAtivo ? "Modo claro" : "Modo escuro";
     botaoTema.setAttribute("aria-pressed", escuroAtivo.toString());
+});
+
+// Abre e fecha o menu hamburger no celular.
+botaoMenu.addEventListener("click", () => {
+    menu.classList.toggle("aberto");
+
+    const menuAberto = menu.classList.contains("aberto");
+    botaoMenu.textContent = menuAberto ? "×" : "☰";
+    botaoMenu.setAttribute("aria-label", menuAberto ? "Fechar menu" : "Abrir menu");
+    botaoMenu.setAttribute("aria-expanded", menuAberto.toString());
+});
+
+// Fecha o menu depois que a pessoa escolhe uma seção.
+document.querySelectorAll(".links-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+        menu.classList.remove("aberto");
+        botaoMenu.textContent = "☰";
+        botaoMenu.setAttribute("aria-label", "Abrir menu");
+        botaoMenu.setAttribute("aria-expanded", "false");
+    });
 });
