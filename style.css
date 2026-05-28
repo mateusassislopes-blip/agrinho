@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .fundo{
     background: rgb(0, 0, 0);
 }
@@ -8,7 +13,7 @@
     color:rgb(53, 51, 51)
 }
 .ano{
-    color:aqua
+    color:#00ffff
 }
 .titulo{
      font-size: 90px;
@@ -19,8 +24,20 @@
 .ano{
      font-size: 50px;
 }
+.superior{
+     text-align: center;
+     width: 100%;              
+    height: auto;             
+    background-color: rgb(88, 92, 88);  
+    display: flow-root; 
+    padding-right: 500px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box; 
+}
 .quadro{
-    text-align: left;
+    text-align: center;
      width: 100%;              
     height: auto;             
     background-color: rgb(39, 118, 37);  
@@ -30,4 +47,23 @@
     padding-top: 20px;
     padding-bottom: 20px;
     box-sizing: border-box; 
+}
+.conteiner{
+    margin-top: 50px ;
+    margin-left: 30px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.img-botao{
+    width: 30%;
+    height: auto;
+    margin-left: 20px;
+}
+.teste-botao{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+   
 }
