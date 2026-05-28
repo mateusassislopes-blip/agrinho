@@ -1,12 +1,18 @@
-/* Reset simples: remove margens padrao e facilita o calculo dos tamanhos. */
+/* Reset simples: remove margens padrão e facilita o cálculo dos tamanhos. */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Variável usada pelo JavaScript para aumentar ou diminuir as letras. */
+:root {
+    --tamanho-fonte: 100%;
+}
+
 /* Rolagem suave quando clicar nos links do menu. */
 html {
+    font-size: var(--tamanho-fonte);
     scroll-behavior: smooth;
 }
 
@@ -16,6 +22,13 @@ body {
     color: #1f2a24;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Modo escuro: ativado pelo botão de acessibilidade no JavaScript. */
+body.modo-escuro {
+    background: #101510;
+    color: #edf5ea;
 }
 
 /* Imagens responsivas para nao estourarem a tela do celular. */
@@ -49,9 +62,22 @@ button {
 
 /* Nome do projeto no menu. */
 .marca {
+    align-items: center;
     color: #ffffff;
+    display: flex;
+    gap: 10px;
     font-weight: 800;
     text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Logo do Agrinho no cabeçalho. */
+.logo-agrinho {
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    height: 46px;
+    object-fit: cover;
+    width: 46px;
 }
 
 /* Grupo de links do menu. */
@@ -69,12 +95,36 @@ button {
     text-decoration: none;
 }
 
+/* Área dos botões de acessibilidade. */
+.acessibilidade {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+/* Botões de acessibilidade. */
+.acessibilidade button {
+    background: #ffffff;
+    color: #143121;
+    font-weight: 800;
+    min-height: 38px;
+    padding: 8px 10px;
+}
+
+/* Destaque visual ao navegar pelo teclado. */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #f3c84b;
+    outline-offset: 3px;
+}
+
 /* Primeira tela com imagem de fundo. Troque a URL para mudar a foto principal. */
 .hero {
     align-items: center;
     background:
         linear-gradient(90deg, rgba(8, 35, 20, 0.82), rgba(8, 35, 20, 0.24)),
-        url("img/1.jpg") center / cover;
+        url("../img/1.jpg") center / cover;
     display: flex;
     min-height: 92vh;
     overflow: hidden;
@@ -133,7 +183,9 @@ button {
 /* Botoes rapidos do topo. */
 .botoes-rapidos button,
 .botao-transformar,
-.grade-modais button {
+.grade-modais button,
+.bloco-problema button,
+.bloco-solucao button {
     background: #f3c84b;
     color: #1f2a24;
     font-weight: 800;
@@ -144,7 +196,9 @@ button {
 /* Efeito ao passar o mouse em botoes. */
 .botoes-rapidos button:hover,
 .botao-transformar:hover,
-.grade-modais button:hover {
+.grade-modais button:hover,
+.bloco-problema button:hover,
+.bloco-solucao button:hover {
     background: #ffe07a;
     transform: translateY(-2px);
 }
@@ -221,7 +275,7 @@ button {
     width: 38px;
 }
 
-/* Estrutura padrao das secoes. */
+/* Estrutura padrão das seções. */
 .secao {
     padding: 76px 6%;
 }
@@ -296,14 +350,14 @@ button {
     text-align: center;
 }
 
-/* Grade de cards da producao. */
+/* Grade de cards da produção. */
 .grade-cards {
     display: grid;
     gap: 18px;
     grid-template-columns: repeat(3, 1fr);
 }
 
-/* Card da producao agricola. */
+/* Card da produção agrícola. */
 .card-info {
     background: #ffffff;
     border: 1px solid #dfe8d8;
@@ -472,93 +526,68 @@ button {
     justify-content: center;
 }
 
-/* Fundo da secao recursos. */
-.recursos {
+/* Fundo da seção de problemas e soluções. */
+.problemas {
     background: #f8fbff;
 }
 
-/* Rio com efeito de agua. */
-.rio-interativo {
-    align-items: center;
-    background: linear-gradient(90deg, #0e78a8, #41bfd0, #0e78a8);
+/* Painel principal da seção de problemas. */
+.painel-problemas {
+    align-items: stretch;
+    display: grid;
+    gap: 22px;
+    grid-template-columns: minmax(260px, 0.9fr) minmax(280px, 1.1fr);
+    margin: 0 auto 24px;
+    max-width: 1080px;
+}
+
+/* Imagem ilustrativa dos problemas e soluções. */
+.painel-problemas img {
     border-radius: 8px;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto 26px;
-    max-width: 980px;
-    min-height: 180px;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
+    height: 100%;
+    min-height: 360px;
+    object-fit: cover;
+    width: 100%;
 }
 
-/* Texto sobre o rio. */
-.rio-interativo p {
-    font-weight: 800;
-    position: relative;
-    z-index: 2;
-}
-
-/* Ondas do rio. */
-.rio-interativo::before,
-.rio-interativo::after {
-    animation: ondaAgua 5s linear infinite;
-    background: rgba(255, 255, 255, 0.22);
-    border-radius: 45%;
-    content: "";
-    height: 180px;
-    position: absolute;
-    width: 120%;
-}
-
-.rio-interativo::after {
-    animation-delay: 1.2s;
-    opacity: 0.7;
-}
-
-/* Brilho extra quando o usuario passa o mouse ou toca. */
-.rio-interativo:hover {
-    box-shadow: 0 0 34px rgba(65, 191, 208, 0.65);
-}
-
-/* Gotas animadas. */
-.gota {
-    animation: gotaSubindo 3.5s infinite;
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 50%;
-    height: 12px;
-    position: absolute;
-    width: 12px;
-}
-
-/* Posicoes diferentes das gotas. */
-.gota:nth-child(1) { left: 18%; bottom: 20px; }
-.gota:nth-child(2) { left: 58%; bottom: 34px; animation-delay: 1s; }
-.gota:nth-child(3) { left: 82%; bottom: 24px; animation-delay: 2s; }
-
-/* Cards dos recursos naturais. */
-.grade-recursos {
+/* Coluna com problema e solução lado a lado. */
+.comparativo-problemas {
     display: grid;
     gap: 18px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
-/* Cada card de recurso. */
-.grade-recursos article {
+/* Blocos da comparação. */
+.bloco-problema,
+.bloco-solucao {
     background: #ffffff;
     border: 1px solid #d7e8ef;
     border-radius: 8px;
     padding: 22px;
 }
 
-/* Titulo do recurso. */
-.grade-recursos span {
-    color: #0e78a8;
-    display: block;
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin-bottom: 8px;
+/* Destaque visual diferente para problema e solução. */
+.bloco-problema {
+    border-top: 6px solid #c44a35;
+}
+
+.bloco-solucao {
+    border-top: 6px solid #5d9d46;
+}
+
+/* Títulos dos blocos de comparação. */
+.bloco-problema h3,
+.bloco-solucao h3 {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+}
+
+/* Listas dos blocos. */
+.bloco-problema ul,
+.bloco-solucao ul {
+    display: grid;
+    gap: 10px;
+    margin: 0 0 18px 18px;
 }
 
 /* Fundo da secao cidade. */
@@ -649,10 +678,72 @@ button {
 
 /* Rodape do site. */
 .rodape {
+    align-items: center;
     background: #143121;
     color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
     padding: 24px 6%;
     text-align: center;
+}
+
+/* Logo do colégio no rodapé. */
+.logo-colegio {
+    background: #ffffff;
+    border-radius: 8px;
+    max-height: 72px;
+    object-fit: contain;
+    padding: 6px;
+    width: auto;
+}
+
+/* Ajustes de cores para o modo escuro. */
+body.modo-escuro .menu,
+body.modo-escuro .rodape {
+    background: #071108;
+}
+
+body.modo-escuro .producao,
+body.modo-escuro .recursos,
+body.modo-escuro .problemas {
+    background: #101510;
+}
+
+body.modo-escuro .sustentabilidade,
+body.modo-escuro .cidade {
+    background: #171f17;
+}
+
+body.modo-escuro .painel-grafico,
+body.modo-escuro .card-info,
+body.modo-escuro .bloco-problema,
+body.modo-escuro .bloco-solucao,
+body.modo-escuro .grade-recursos article,
+body.modo-escuro .voz-comunidade blockquote,
+body.modo-escuro .janela-modal {
+    background: #1d261d;
+    border-color: #334233;
+    color: #edf5ea;
+}
+
+body.modo-escuro .cabecalho-secao p:last-child,
+body.modo-escuro .card-info p,
+body.modo-escuro .observacao,
+body.modo-escuro .antes-depois figcaption {
+    color: #c3d3bf;
+}
+
+body.modo-escuro .mapa-local {
+    background: #24351f;
+    border-color: #536b45;
+}
+
+body.modo-escuro .ponto,
+body.modo-escuro .acessibilidade button {
+    background: #edf5ea;
+    color: #071108;
 }
 
 /* Fundo escuro do modal. */
@@ -767,8 +858,13 @@ button {
 
     .grade-cards,
     .clima,
-    .grade-recursos {
+    .grade-recursos,
+    .painel-problemas {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .comparativo-problemas {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -804,9 +900,15 @@ button {
     .grade-cards,
     .clima,
     .grade-recursos,
+    .painel-problemas,
+    .comparativo-problemas,
     .antes-depois,
     .voz-comunidade {
         grid-template-columns: 1fr;
+    }
+
+    .painel-problemas img {
+        min-height: 260px;
     }
 
     .mapa-local {
