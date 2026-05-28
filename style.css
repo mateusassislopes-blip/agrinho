@@ -1,69 +1,827 @@
+/* Reset simples: remove margens padrao e facilita o calculo dos tamanhos. */
 * {
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.fundo{
-    background: rgb(0, 0, 0);
+/* Rolagem suave quando clicar nos links do menu. */
+html {
+    scroll-behavior: smooth;
 }
-.titulo{
-    color:rgb(0, 0, 0)
+
+/* Estilo geral do corpo do site. Altere a fonte aqui se quiser. */
+body {
+    background: #f4f7ef;
+    color: #1f2a24;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
 }
-.subt{
-    color:rgb(53, 51, 51)
+
+/* Imagens responsivas para nao estourarem a tela do celular. */
+img {
+    display: block;
+    max-width: 100%;
 }
-.ano{
-    color:#00ffff
+
+/* Botoes com visual parecido no site inteiro. */
+button {
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font: inherit;
 }
-.titulo{
-     font-size: 90px;
-}
-.subt{
-     font-size: 30px;
-}
-.ano{
-     font-size: 50px;
-}
-.superior{
-     text-align: center;
-     width: 100%;              
-    height: auto;             
-    background-color: rgb(88, 92, 88);  
-    display: flow-root; 
-    padding-right: 500px;
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    box-sizing: border-box; 
-}
-.quadro{
-    text-align: center;
-     width: 100%;              
-    height: auto;             
-    background-color: rgb(39, 118, 37);  
-    display: flow-root; 
-    padding-right: 500px;
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    box-sizing: border-box; 
-}
-.conteiner{
-    margin-top: 50px ;
-    margin-left: 30px;
-    align-items: flex-start;
+
+/* Menu fixo no topo. */
+.menu {
+    align-items: center;
+    background: rgba(20, 49, 33, 0.92);
+    display: flex;
+    gap: 24px;
     justify-content: space-between;
+    left: 0;
+    padding: 14px 6%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
 }
-.img-botao{
-    width: 30%;
-    height: auto;
-    margin-left: 20px;
+
+/* Nome do projeto no menu. */
+.marca {
+    color: #ffffff;
+    font-weight: 800;
+    text-decoration: none;
 }
-.teste-botao{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 20px;
-    color: rgb(255, 255, 255);
+
+/* Grupo de links do menu. */
+.links-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: flex-end;
+}
+
+/* Links do menu. */
+.links-menu a {
+    color: #eef7e7;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+/* Primeira tela com imagem de fundo. Troque a URL para mudar a foto principal. */
+.hero {
+    align-items: center;
+    background:
+        linear-gradient(90deg, rgba(8, 35, 20, 0.82), rgba(8, 35, 20, 0.24)),
+        url("img/1.jpg") center / cover;
+    display: flex;
+    min-height: 92vh;
+    overflow: hidden;
+    padding: 120px 6% 90px;
+    position: relative;
+}
+
+/* Camada de ceu animado, deixando a luz mudar devagar. */
+.ceu-animado {
+    animation: mudarCeu 9s infinite alternate;
+    background: linear-gradient(120deg, rgba(255, 223, 136, 0.22), rgba(126, 210, 255, 0.18));
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+/* Conteudo escrito do hero. */
+.hero-conteudo {
+    color: #ffffff;
+    max-width: 760px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Etiquetas pequenas de cada secao. */
+.etiqueta {
+    color: #f3c84b;
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+/* Titulo principal. */
+.hero h1 {
+    font-size: clamp(2.4rem, 7vw, 5.8rem);
+    line-height: 1;
+    margin: 10px 0 18px;
+    max-width: 780px;
+}
+
+/* Texto do hero. */
+.hero p {
+    font-size: 1.15rem;
+    max-width: 620px;
+}
+
+/* Grupo dos botoes rapidos. */
+.botoes-rapidos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+/* Botoes rapidos do topo. */
+.botoes-rapidos button,
+.botao-transformar,
+.grade-modais button {
+    background: #f3c84b;
+    color: #1f2a24;
+    font-weight: 800;
+    padding: 12px 16px;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* Efeito ao passar o mouse em botoes. */
+.botoes-rapidos button:hover,
+.botao-transformar:hover,
+.grade-modais button:hover {
+    background: #ffe07a;
+    transform: translateY(-2px);
+}
+
+/* Folhas animadas no hero. */
+.folhas span {
+    animation: cairFolha 8s linear infinite;
+    background: #8fc34a;
+    border-radius: 80% 0 80% 0;
+    height: 22px;
+    position: absolute;
+    top: -30px;
+    width: 14px;
+    z-index: 1;
+}
+
+/* Posicoes diferentes para cada folha. */
+.folhas span:nth-child(1) { left: 18%; animation-delay: 0s; }
+.folhas span:nth-child(2) { left: 44%; animation-delay: 2s; }
+.folhas span:nth-child(3) { left: 68%; animation-delay: 4s; }
+.folhas span:nth-child(4) { left: 84%; animation-delay: 1s; }
+
+/* Trator decorativo feito com CSS. */
+.trator {
+    animation: moverTrator 12s linear infinite;
+    bottom: 36px;
+    height: 76px;
+    left: -180px;
+    position: absolute;
+    width: 170px;
+    z-index: 3;
+}
+
+/* Partes do trator. */
+.corpo-trator {
+    background: #d6512f;
+    border-radius: 8px;
+    bottom: 20px;
+    height: 34px;
+    left: 34px;
+    position: absolute;
+    width: 110px;
+}
+
+.cabine {
+    background: #5ba5c8;
+    border: 4px solid #d6512f;
+    border-radius: 8px 8px 2px 2px;
+    bottom: 52px;
+    height: 42px;
+    left: 78px;
+    position: absolute;
+    width: 48px;
+}
+
+.roda {
+    animation: girarRoda 1.2s linear infinite;
+    background: #202020;
+    border: 6px solid #444444;
+    border-radius: 50%;
+    bottom: 0;
+    position: absolute;
+}
+
+.roda-grande {
+    height: 54px;
+    left: 28px;
+    width: 54px;
+}
+
+.roda-pequena {
+    height: 38px;
+    left: 116px;
+    width: 38px;
+}
+
+/* Estrutura padrao das secoes. */
+.secao {
+    padding: 76px 6%;
+}
+
+/* Cabecalho de cada secao. */
+.cabecalho-secao {
+    margin: 0 auto 34px;
+    max-width: 860px;
     text-align: center;
-   
+}
+
+/* Titulos das secoes. */
+.cabecalho-secao h2 {
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1.1;
+    margin: 8px 0 14px;
+}
+
+/* Texto das secoes. */
+.cabecalho-secao p:last-child {
+    color: #526257;
+    font-size: 1.05rem;
+}
+
+/* Painel do grafico. */
+.painel-grafico {
+    background: #ffffff;
+    border: 1px solid #dfe8d8;
+    border-radius: 8px;
+    margin: 0 auto 28px;
+    max-width: 980px;
+    padding: 24px;
+}
+
+/* Area do grafico de barras. */
+.grafico {
+    align-items: end;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(5, 1fr);
+    height: 300px;
+}
+
+/* Barra individual do grafico. */
+.barra {
+    align-items: center;
+    animation: subirBarra 1.2s ease-out forwards;
+    background: linear-gradient(180deg, #f3c84b, #5d9d46);
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    flex-direction: column;
+    height: var(--valor);
+    justify-content: space-between;
+    min-height: 86px;
+    padding: 12px 8px;
+    transform-origin: bottom;
+}
+
+/* Textos dentro da barra. */
+.barra span,
+.barra strong {
+    color: #ffffff;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* Observacao abaixo do grafico. */
+.observacao {
+    color: #667066;
+    font-size: 0.92rem;
+    margin-top: 12px;
+    text-align: center;
+}
+
+/* Grade de cards da producao. */
+.grade-cards {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Card da producao agricola. */
+.card-info {
+    background: #ffffff;
+    border: 1px solid #dfe8d8;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Imagem do card. */
+.card-info img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Texto interno do card. */
+.card-info div {
+    padding: 18px;
+}
+
+/* Titulo do card. */
+.card-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+/* Paragrafos do card. */
+.card-info p {
+    color: #526257;
+    margin-top: 8px;
+}
+
+/* Mini painel climatico. */
+.clima {
+    background: #143121;
+    border-radius: 8px;
+    color: #ffffff;
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 26px;
+    padding: 24px;
+}
+
+/* Itens do painel climatico. */
+.clima div {
+    background: rgba(255, 255, 255, 0.09);
+    border-radius: 8px;
+    padding: 18px;
+}
+
+/* Numeros do clima. */
+.clima strong {
+    display: block;
+    font-size: 2rem;
+    margin: 4px 0;
+}
+
+/* Fundo da secao sustentabilidade. */
+.sustentabilidade {
+    background: #e8efe3;
+}
+
+/* Cenario seco/verde. */
+.cenario {
+    background: linear-gradient(#b8b8b8 0 45%, #8d7a5e 45% 100%);
+    border: 1px solid #cbd8c0;
+    border-radius: 8px;
+    height: 330px;
+    margin: 0 auto 22px;
+    max-width: 980px;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.8s ease;
+}
+
+/* Estado transformado do cenario. */
+.cenario.transformado {
+    background: linear-gradient(#9ddcf5 0 45%, #5caa55 45% 100%);
+}
+
+/* Sol do cenario. */
+.sol {
+    background: #f3c84b;
+    border-radius: 50%;
+    height: 82px;
+    left: 7%;
+    position: absolute;
+    top: 30px;
+    width: 82px;
+}
+
+/* Fumaca que desaparece na transformacao. */
+.fumaca {
+    background: rgba(80, 80, 80, 0.65);
+    border-radius: 50%;
+    box-shadow: 22px -12px 0 rgba(80, 80, 80, 0.55), 48px 6px 0 rgba(80, 80, 80, 0.4);
+    height: 54px;
+    position: absolute;
+    right: 18%;
+    top: 84px;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    width: 54px;
+}
+
+/* Some com a fumaca quando o cenario esta verde. */
+.cenario.transformado .fumaca {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+/* Faixa de terra do cenario. */
+.terra {
+    background: rgba(80, 56, 31, 0.36);
+    bottom: 0;
+    height: 70px;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+/* Arvores do cenario. */
+.arvores span {
+    background: #2f7b3a;
+    border-radius: 60% 60% 45% 45%;
+    bottom: 70px;
+    height: 34px;
+    position: absolute;
+    transform: scaleY(0.4);
+    transform-origin: bottom;
+    transition: transform 0.8s ease;
+    width: 52px;
+}
+
+/* Troncos das arvores. */
+.arvores span::after {
+    background: #7b4a29;
+    bottom: -44px;
+    content: "";
+    height: 48px;
+    left: 22px;
+    position: absolute;
+    width: 9px;
+}
+
+/* Posicoes das arvores. */
+.arvores span:nth-child(1) { left: 34%; }
+.arvores span:nth-child(2) { left: 52%; }
+.arvores span:nth-child(3) { left: 72%; }
+
+/* Crescimento das arvores depois do clique. */
+.cenario.transformado .arvores span {
+    transform: scaleY(1.9);
+}
+
+/* Botao transformar centralizado. */
+.botao-transformar {
+    display: block;
+    margin: 0 auto 24px;
+}
+
+/* Botoes que abrem os modais. */
+.grade-modais {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+}
+
+/* Fundo da secao recursos. */
+.recursos {
+    background: #f8fbff;
+}
+
+/* Rio com efeito de agua. */
+.rio-interativo {
+    align-items: center;
+    background: linear-gradient(90deg, #0e78a8, #41bfd0, #0e78a8);
+    border-radius: 8px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 26px;
+    max-width: 980px;
+    min-height: 180px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+/* Texto sobre o rio. */
+.rio-interativo p {
+    font-weight: 800;
+    position: relative;
+    z-index: 2;
+}
+
+/* Ondas do rio. */
+.rio-interativo::before,
+.rio-interativo::after {
+    animation: ondaAgua 5s linear infinite;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 45%;
+    content: "";
+    height: 180px;
+    position: absolute;
+    width: 120%;
+}
+
+.rio-interativo::after {
+    animation-delay: 1.2s;
+    opacity: 0.7;
+}
+
+/* Brilho extra quando o usuario passa o mouse ou toca. */
+.rio-interativo:hover {
+    box-shadow: 0 0 34px rgba(65, 191, 208, 0.65);
+}
+
+/* Gotas animadas. */
+.gota {
+    animation: gotaSubindo 3.5s infinite;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    height: 12px;
+    position: absolute;
+    width: 12px;
+}
+
+/* Posicoes diferentes das gotas. */
+.gota:nth-child(1) { left: 18%; bottom: 20px; }
+.gota:nth-child(2) { left: 58%; bottom: 34px; animation-delay: 1s; }
+.gota:nth-child(3) { left: 82%; bottom: 24px; animation-delay: 2s; }
+
+/* Cards dos recursos naturais. */
+.grade-recursos {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Cada card de recurso. */
+.grade-recursos article {
+    background: #ffffff;
+    border: 1px solid #d7e8ef;
+    border-radius: 8px;
+    padding: 22px;
+}
+
+/* Titulo do recurso. */
+.grade-recursos span {
+    color: #0e78a8;
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+/* Fundo da secao cidade. */
+.cidade {
+    background: #fff8e7;
+}
+
+/* Antes e depois da cidade. */
+.antes-depois {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Imagens do antes e depois. */
+.antes-depois img {
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Legenda das imagens. */
+.antes-depois figcaption {
+    color: #526257;
+    font-weight: 800;
+    margin-top: 8px;
+}
+
+/* Bloco das frases da comunidade. */
+.voz-comunidade {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 26px 0;
+}
+
+/* Cada frase da comunidade. */
+.voz-comunidade blockquote {
+    background: #ffffff;
+    border-left: 6px solid #5d9d46;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    padding: 22px;
+}
+
+/* Mapa local ilustrativo. */
+.mapa-local {
+    background: #e4edc9;
+    border: 2px solid #9eb56a;
+    border-radius: 8px;
+    height: 360px;
+    margin: 0 auto;
+    max-width: 980px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Rio desenhado no mapa. */
+.linha-rio {
+    background: #41bfd0;
+    height: 46px;
+    left: -8%;
+    position: absolute;
+    top: 46%;
+    transform: rotate(-12deg);
+    width: 116%;
+}
+
+/* Pontos do mapa. */
+.ponto {
+    background: #ffffff;
+    border: 2px solid #143121;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    padding: 8px 10px;
+    position: absolute;
+}
+
+/* Posicoes de cada ponto do mapa. */
+.ponto-rio { left: 12%; top: 47%; }
+.ponto-verde { left: 18%; top: 18%; }
+.ponto-agro { right: 16%; top: 22%; }
+.ponto-escola { left: 44%; bottom: 18%; }
+.ponto-projeto { right: 10%; bottom: 14%; }
+
+/* Rodape do site. */
+.rodape {
+    background: #143121;
+    color: #ffffff;
+    padding: 24px 6%;
+    text-align: center;
+}
+
+/* Fundo escuro do modal. */
+.modal {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.62);
+    display: none;
+    inset: 0;
+    justify-content: center;
+    padding: 24px;
+    position: fixed;
+    z-index: 20;
+}
+
+/* Modal visivel. */
+.modal.ativo {
+    display: flex;
+}
+
+/* Janela branca do modal. */
+.janela-modal {
+    background: #ffffff;
+    border-radius: 8px;
+    max-width: 480px;
+    padding: 28px;
+    position: relative;
+    width: 100%;
+}
+
+/* Botao X do modal. */
+.fechar-modal {
+    background: #143121;
+    color: #ffffff;
+    height: 34px;
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    width: 34px;
+}
+
+/* Titulo do modal. */
+.janela-modal h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    padding-right: 42px;
+}
+
+/* Animacao do ceu. */
+@keyframes mudarCeu {
+    from { opacity: 0.35; }
+    to { opacity: 0.9; }
+}
+
+/* Animacao das folhas. */
+@keyframes cairFolha {
+    from {
+        transform: translateY(-40px) rotate(0deg);
+    }
+    to {
+        transform: translateY(760px) rotate(360deg);
+    }
+}
+
+/* Animacao do trator atravessando a tela. */
+@keyframes moverTrator {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(100vw + 240px)); }
+}
+
+/* Animacao das rodas do trator. */
+@keyframes girarRoda {
+    to { transform: rotate(360deg); }
+}
+
+/* Animacao do grafico. */
+@keyframes subirBarra {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+}
+
+/* Animacao das ondas do rio. */
+@keyframes ondaAgua {
+    from { transform: translateX(-18%) rotate(0deg); }
+    to { transform: translateX(18%) rotate(360deg); }
+}
+
+/* Animacao das gotas de agua. */
+@keyframes gotaSubindo {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.7);
+    }
+    45% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-90px) scale(1.2);
+    }
+}
+
+/* Ajustes para tablets. */
+@media (max-width: 900px) {
+    .menu {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .hero {
+        padding-top: 160px;
+    }
+
+    .grade-cards,
+    .clima,
+    .grade-recursos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Ajustes para celular. */
+@media (max-width: 620px) {
+    .links-menu {
+        gap: 10px;
+    }
+
+    .links-menu a {
+        font-size: 0.86rem;
+    }
+
+    .hero {
+        min-height: 100vh;
+        padding-bottom: 110px;
+    }
+
+    .grafico {
+        gap: 8px;
+        height: 250px;
+    }
+
+    .barra {
+        padding: 10px 4px;
+    }
+
+    .barra span,
+    .barra strong {
+        font-size: 0.78rem;
+    }
+
+    .grade-cards,
+    .clima,
+    .grade-recursos,
+    .antes-depois,
+    .voz-comunidade {
+        grid-template-columns: 1fr;
+    }
+
+    .mapa-local {
+        height: 430px;
+    }
+
+    .ponto {
+        font-size: 0.78rem;
+    }
+
+    .ponto-agro {
+        right: 6%;
+    }
+
+    .ponto-projeto {
+        right: 5%;
+    }
 }

@@ -1,35 +1,355 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Configuracoes basicas da pagina. Altere o titulo se quiser colocar o nome da sua cidade. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
-    <title>Mateus</title>
+    <meta name="description" content="Site Agrinho 2026 sobre producao agricola, sustentabilidade, recursos naturais e identidade local no Parana.">
+    <link rel="stylesheet" href="style.css">
+    <title>Agrinho 2026 | Agro Forte, Futuro Sustentavel</title>
 </head>
-<body class="fundo">
-<header class="quadro">
-    <h1 class="titulo">
-        Do Paraná à Nossa Terra:<br>
-        Agro Forte, Futuro Sustentável
-    </h1>
-    <h2 class="subt">
-        Uma jornada pelo Paraná até nossa terra, explorando a produção, a sustentabilidade e o equilíbrio entre o campo e o meio ambiente
-    </h2>
-</header>
-   <div class="conteiner">
+<body>
+    <!-- Cabecalho principal com menu de navegacao. -->
+    <header class="topo" id="inicio">
+        <nav class="menu" aria-label="Menu principal">
+            <a class="marca" href="#inicio">Agrinho 2026</a>
 
-       <img class="img-botao"  src="img/1.jpg" alt="Descrição da imagem">
-       <img class="img-botao" src="img/2.jpg" alt="Descrição da imagem">
-       <img class="img-botao" src="img/3.jpeg" alt="Descrição da imagem">
-   </div>
-   <div class="teste-botao">
-        <h3>botao 1</h3>
-        <h3>botao 2</h3>
-        <h3>botao 3</h3>
-   </div>
-   <header class="superior">
-    
-   </header>
+            <!-- Os links abaixo levam para cada parte do site. -->
+            <div class="links-menu">
+                <a href="#producao">Producao</a>
+                <a href="#sustentabilidade">Sustentabilidade</a>
+                <a href="#recursos">Recursos</a>
+                <a href="#cidade">Nossa Cidade</a>
+            </div>
+        </nav>
 
+        <!-- Hero: primeira tela do site. Use img/1.jpg, img/2.jpg ou img/3.jpeg como fundo no CSS. -->
+        <section class="hero">
+            <div class="ceu-animado" aria-hidden="true"></div>
+            <div class="folhas" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="hero-conteudo">
+                <p class="etiqueta">Do Parana a nossa terra</p>
+                <h1>Agro forte, futuro sustentavel</h1>
+                <p>
+                    Uma jornada pela producao agricola, pela preservacao da natureza e pela identidade da nossa comunidade.
+                </p>
+
+                <!-- Botoes rapidos pedidos no enunciado. Cada botao chama uma funcao no JavaScript. -->
+                <div class="botoes-rapidos" aria-label="Botoes rapidos">
+                    <button type="button" data-acao="curiosidade">Voce sabia?</button>
+                    <button type="button" data-acao="impacto">Ver impacto</button>
+                    <button type="button" data-acao="solucao">Solucao sustentavel</button>
+                </div>
+            </div>
+
+            <!-- Trator feito com CSS para dar movimento sem precisar de outra imagem. -->
+            <div class="trator" aria-hidden="true">
+                <div class="cabine"></div>
+                <div class="corpo-trator"></div>
+                <div class="roda roda-grande"></div>
+                <div class="roda roda-pequena"></div>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <!-- Secao 1: Producao Agricola. -->
+        <section class="secao producao" id="producao">
+            <div class="cabecalho-secao">
+                <p class="etiqueta">Producao Agricola</p>
+                <h2>O Parana alimenta, gera renda e movimenta tecnologia</h2>
+                <p>
+                    Soja, milho, cafe, leite e frango estao entre as atividades que fortalecem o campo, a industria e o comercio.
+                </p>
+            </div>
+
+            <!-- Grafico animado: mude os valores no atributo style para alterar as alturas. -->
+            <article class="painel-grafico" aria-label="Grafico animado de producao agricola">
+                <div class="grafico">
+                    <div class="barra" style="--valor: 92%">
+                        <span>Soja</span>
+                        <strong>92%</strong>
+                    </div>
+                    <div class="barra" style="--valor: 78%">
+                        <span>Milho</span>
+                        <strong>78%</strong>
+                    </div>
+                    <div class="barra" style="--valor: 42%">
+                        <span>Cafe</span>
+                        <strong>42%</strong>
+                    </div>
+                    <div class="barra" style="--valor: 66%">
+                        <span>Leite</span>
+                        <strong>66%</strong>
+                    </div>
+                    <div class="barra" style="--valor: 88%">
+                        <span>Frango</span>
+                        <strong>88%</strong>
+                    </div>
+                </div>
+                <p class="observacao">Valores ilustrativos para representar a forca de cada cadeia produtiva.</p>
+            </article>
+
+            <!-- Cards informativos com imagem, curiosidade e impacto economico. -->
+            <div class="grade-cards">
+                <article class="card-info">
+                    <img src="img/1.jpg" alt="Plantacao no campo">
+                    <div>
+                        <h3>Plantacoes do Parana</h3>
+                        <p><strong>Curiosidade:</strong> o estado se destaca em graos e na integracao entre agricultura e agroindustria.</p>
+                        <p><strong>Impacto:</strong> movimenta transporte, comercio, cooperativas e empregos.</p>
+                    </div>
+                </article>
+
+                <article class="card-info">
+                    <img src="img/2.jpg" alt="Paisagem rural com area verde">
+                    <div>
+                        <h3>Tecnologia no campo</h3>
+                        <p><strong>Curiosidade:</strong> drones, sensores e aplicativos ajudam o produtor a decidir melhor.</p>
+                        <p><strong>Impacto:</strong> aumenta produtividade e reduz desperdicio de agua, energia e insumos.</p>
+                    </div>
+                </article>
+
+                <article class="card-info">
+                    <img src="img/3.jpeg" alt="Natureza e area rural">
+                    <div>
+                        <h3>Agricultura familiar</h3>
+                        <p><strong>Curiosidade:</strong> muitas familias produzem alimentos que chegam direto a feiras e escolas.</p>
+                        <p><strong>Impacto:</strong> fortalece a renda local e mantem a cultura rural viva.</p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Mini painel climatico. Os textos podem ser alterados conforme sua cidade. -->
+            <aside class="clima" aria-label="Mini painel climatico">
+                <div>
+                    <span>Chuva</span>
+                    <strong>18 mm</strong>
+                    <p>Ajuda na germinacao, mas o excesso pode atrapalhar a colheita.</p>
+                </div>
+                <div>
+                    <span>Clima</span>
+                    <strong>24°C</strong>
+                    <p>Temperaturas equilibradas favorecem o crescimento das plantas.</p>
+                </div>
+                <div>
+                    <span>Producao</span>
+                    <strong>Boa</strong>
+                    <p>Solo cuidado e previsao do tempo melhoram o planejamento.</p>
+                </div>
+            </aside>
+        </section>
+
+        <!-- Secao 2: Sustentabilidade. -->
+        <section class="secao sustentabilidade" id="sustentabilidade">
+            <div class="cabecalho-secao">
+                <p class="etiqueta">Sustentabilidade</p>
+                <h2>Produzir bem tambem e preservar</h2>
+                <p>
+                    Energia limpa, reutilizacao da agua, reducao da poluicao e reflorestamento ajudam a equilibrar economia e natureza.
+                </p>
+            </div>
+
+            <!-- Cenario que muda quando o usuario clica no botao Transformar. -->
+            <div class="cenario" id="cenarioSustentavel">
+                <div class="sol"></div>
+                <div class="fumaca"></div>
+                <div class="arvores">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="terra"></div>
+            </div>
+
+            <button class="botao-transformar" type="button" id="botaoTransformar">Transformar</button>
+
+            <!-- Botoes que abrem pequenas janelas/modais. -->
+            <div class="grade-modais">
+                <button type="button" data-modal="solar">Energia Solar</button>
+                <button type="button" data-modal="reflorestamento">Reflorestamento</button>
+                <button type="button" data-modal="agua">Economia de Agua</button>
+            </div>
+        </section>
+
+        <!-- Secao 3: Recursos Naturais. -->
+        <section class="secao recursos" id="recursos">
+            <div class="cabecalho-secao">
+                <p class="etiqueta">Recursos Naturais</p>
+                <h2>Agua, solo, florestas e biodiversidade sustentam a vida</h2>
+                <p>
+                    Os rios do Parana, o clima e a natureza precisam de cuidado para garantir producao hoje e recursos no futuro.
+                </p>
+            </div>
+
+            <!-- Area com efeito de agua no hover. -->
+            <div class="rio-interativo" aria-label="Rio interativo com ondas">
+                <span class="gota"></span>
+                <span class="gota"></span>
+                <span class="gota"></span>
+                <p>Passe o mouse ou toque para ver o rio ganhar brilho.</p>
+            </div>
+
+            <!-- Cards dos recursos naturais. -->
+            <div class="grade-recursos">
+                <article>
+                    <span>Agua</span>
+                    <p>Essencial para producao e vida.</p>
+                </article>
+                <article>
+                    <span>Solo</span>
+                    <p>Solo saudavel gera alimento saudavel.</p>
+                </article>
+                <article>
+                    <span>Florestas</span>
+                    <p>Protegem rios e equilibram o clima.</p>
+                </article>
+                <article>
+                    <span>Biodiversidade</span>
+                    <p>Animais e plantas mantem o equilibrio natural.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Secao 4: Nossa Cidade. Edite os textos para colocar o nome e os dados reais da sua cidade. -->
+        <section class="secao cidade" id="cidade">
+            <div class="cabecalho-secao">
+                <p class="etiqueta">Nossa Cidade</p>
+                <h2>Identidade local: raizes rurais e futuro sustentavel</h2>
+                <p>
+                    Troque este texto pela historia da sua cidade: origem rural, principais culturas, rios, areas verdes, escolas e projetos ambientais.
+                </p>
+            </div>
+
+            <!-- Antes e depois: use as imagens que voce tiver da sua cidade, se conseguir. -->
+            <div class="antes-depois">
+                <figure>
+                    <img src="img/1.jpg" alt="Antes: paisagem rural ou area natural">
+                    <figcaption>Antes: natureza e vida rural</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/2.jpg" alt="Depois: cidade em evolucao">
+                    <figcaption>Depois: cidade crescendo com responsabilidade</figcaption>
+                </figure>
+            </div>
+
+            <!-- Voz da comunidade com frases curtas. -->
+            <div class="voz-comunidade">
+                <blockquote>“Nossa terra e nosso futuro.”</blockquote>
+                <blockquote>“Cuidar da cidade e preservar nossas raizes.”</blockquote>
+            </div>
+
+            <!-- Mapa local ilustrativo. Mude os nomes dos pontos para combinar com sua cidade. -->
+            <div class="mapa-local" aria-label="Mapa local ilustrativo">
+                <div class="linha-rio"></div>
+                <span class="ponto ponto-rio">Rio</span>
+                <span class="ponto ponto-verde">Area verde</span>
+                <span class="ponto ponto-agro">Agricultura</span>
+                <span class="ponto ponto-escola">Escola</span>
+                <span class="ponto ponto-projeto">Projeto ambiental</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodape simples para fechar o trabalho. -->
+    <footer class="rodape">
+        <p>Site desenvolvido para o Agrinho 2026 - 1º ano tecnico em Desenvolvimento de Sistemas.</p>
+    </footer>
+
+    <!-- Modal reutilizado pelos botoes de sustentabilidade e pelos botoes rapidos. -->
+    <div class="modal" id="modal" aria-hidden="true">
+        <div class="janela-modal" role="dialog" aria-modal="true" aria-labelledby="tituloModal">
+            <button class="fechar-modal" type="button" id="fecharModal" aria-label="Fechar janela">X</button>
+            <h3 id="tituloModal">Titulo</h3>
+            <p id="textoModal">Texto do modal.</p>
+        </div>
+    </div>
+
+    <script>
+        // Conteudos dos modais. Para mudar as mensagens, edite os textos abaixo.
+        const conteudosModal = {
+            solar: {
+                titulo: "Energia Solar",
+                texto: "A energia limpa ajuda o agro a produzir sem agredir o meio ambiente."
+            },
+            reflorestamento: {
+                titulo: "Reflorestamento",
+                texto: "Preservar hoje garante recursos para o futuro."
+            },
+            agua: {
+                titulo: "Economia de Agua",
+                texto: "Tecnologias inteligentes evitam desperdicios."
+            },
+            curiosidade: {
+                titulo: "Voce sabia?",
+                texto: "O agro conecta campo e cidade: alimento, transporte, industria, ciencia e comercio trabalham juntos."
+            },
+            impacto: {
+                titulo: "Impacto ambiental",
+                texto: "Quando a producao respeita o solo, a agua e as matas, a cidade cresce com mais qualidade de vida."
+            },
+            solucao: {
+                titulo: "Solucao sustentavel",
+                texto: "Sensores de irrigacao, energia solar e recuperacao de nascentes sao tecnologias que ajudam a preservar."
+            }
+        };
+
+        // Pegamos os elementos do HTML para controlar a janela modal.
+        const modal = document.querySelector("#modal");
+        const tituloModal = document.querySelector("#tituloModal");
+        const textoModal = document.querySelector("#textoModal");
+        const fecharModal = document.querySelector("#fecharModal");
+
+        // Esta funcao abre a janela modal com o conteudo escolhido.
+        function abrirModal(tipo) {
+            const conteudo = conteudosModal[tipo];
+
+            if (!conteudo) {
+                return;
+            }
+
+            tituloModal.textContent = conteudo.titulo;
+            textoModal.textContent = conteudo.texto;
+            modal.classList.add("ativo");
+            modal.setAttribute("aria-hidden", "false");
+        }
+
+        // Esta funcao fecha a janela modal.
+        function fecharJanelaModal() {
+            modal.classList.remove("ativo");
+            modal.setAttribute("aria-hidden", "true");
+        }
+
+        // Ativa os botoes que possuem data-modal.
+        document.querySelectorAll("[data-modal]").forEach((botao) => {
+            botao.addEventListener("click", () => abrirModal(botao.dataset.modal));
+        });
+
+        // Ativa os botoes rapidos do topo.
+        document.querySelectorAll("[data-acao]").forEach((botao) => {
+            botao.addEventListener("click", () => abrirModal(botao.dataset.acao));
+        });
+
+        // Fecha o modal no botao X.
+        fecharModal.addEventListener("click", fecharJanelaModal);
+
+        // Fecha o modal quando o usuario clica fora da janela.
+        modal.addEventListener("click", (evento) => {
+            if (evento.target === modal) {
+                fecharJanelaModal();
+            }
+        });
+
+        // Botao Transformar: adiciona ou remove a classe que deixa o cenario verde.
+        document.querySelector("#botaoTransformar").addEventListener("click", () => {
+            document.querySelector("#cenarioSustentavel").classList.toggle("transformado");
+        });
+    </script>
 </body>
 </html>
