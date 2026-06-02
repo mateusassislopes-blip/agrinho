@@ -54,12 +54,15 @@ const fecharModal = document.querySelector("#fecharModal");
 const botaoTema = document.querySelector("#alternarTema");
 const botaoAumentarFonte = document.querySelector("#aumentarFonte");
 const botaoDiminuirFonte = document.querySelector("#diminuirFonte");
+<<<<<<< HEAD
 const botaoMenu = document.querySelector("#botaoMenu");
 const menu = document.querySelector(".menu");
 const formularioMensagem = document.querySelector("#formularioMensagem");
 const nomeVisitante = document.querySelector("#nomeVisitante");
 const mensagemVisitante = document.querySelector("#mensagemVisitante");
 const retornoFormulario = document.querySelector("#retornoFormulario");
+=======
+>>>>>>> 4eb6fe214fdee56d55a31397bd07667370b07c37
 
 // Esta variável controla o tamanho das letras. O valor 100 representa 100%.
 let tamanhoFonte = 100;
@@ -140,6 +143,7 @@ botaoTema.addEventListener("click", () => {
     botaoTema.textContent = escuroAtivo ? "Modo claro" : "Modo escuro";
     botaoTema.setAttribute("aria-pressed", escuroAtivo.toString());
 });
+<<<<<<< HEAD
 
 // Abre e fecha o menu hamburger no celular.
 botaoMenu.addEventListener("click", () => {
@@ -176,3 +180,5 @@ formularioMensagem.addEventListener("submit", (evento) => {
     retornoFormulario.textContent = `Mensagem enviada! Obrigado pela participação, ${nome}. Sua ideia ajuda a fortalecer um futuro mais sustentável.`;
     formularioMensagem.reset();
 });
+=======
+>>>>>>> 4eb6fe214fdee56d55a31397bd07667370b07c37
