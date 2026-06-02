@@ -37,7 +37,7 @@ img {
     max-width: 100%;
 }
 
-/* Botoes com visual parecido no site inteiro. */
+/* Botões com visual parecido no site inteiro. */
 button {
     border: 0;
     border-radius: 8px;
@@ -179,7 +179,7 @@ button:focus-visible {
     text-transform: uppercase;
 }
 
-/* Titulo principal. */
+/* Título principal. */
 .hero h1 {
     font-size: clamp(2.4rem, 7vw, 5.8rem);
     line-height: 1;
@@ -193,7 +193,7 @@ button:focus-visible {
     max-width: 620px;
 }
 
-/* Grupo dos botoes rapidos. */
+/* Grupo dos botões rápidos. */
 .botoes-rapidos {
     display: flex;
     flex-wrap: wrap;
@@ -201,7 +201,7 @@ button:focus-visible {
     margin-top: 28px;
 }
 
-/* Botoes rapidos do topo. */
+/* Botões rápidos do topo. */
 .botoes-rapidos button,
 .botao-transformar,
 .grade-modais button,
@@ -214,7 +214,7 @@ button:focus-visible {
     transition: transform 0.2s ease, background 0.2s ease;
 }
 
-/* Efeito ao passar o mouse em botoes. */
+/* Efeito ao passar o mouse em botões. */
 .botoes-rapidos button:hover,
 .botao-transformar:hover,
 .grade-modais button:hover,
@@ -308,7 +308,7 @@ button:focus-visible {
     text-align: center;
 }
 
-/* Titulos das secoes. */
+/* Títulos das seções. */
 .cabecalho-secao h2 {
     font-size: clamp(2rem, 4vw, 3.3rem);
     line-height: 1.1;
@@ -321,7 +321,7 @@ button:focus-visible {
     font-size: 1.05rem;
 }
 
-/* Painel do grafico. */
+/* Painel do gráfico. */
 .painel-grafico {
     background: #ffffff;
     border: 1px solid #dfe8d8;
@@ -331,7 +331,7 @@ button:focus-visible {
     padding: 24px;
 }
 
-/* Area do grafico de barras. */
+/* Área do gráfico de barras. */
 .grafico {
     align-items: end;
     display: grid;
@@ -340,7 +340,7 @@ button:focus-visible {
     height: 300px;
 }
 
-/* Barra individual do grafico. */
+/* Barra individual do gráfico. */
 .barra {
     align-items: center;
     animation: subirBarra 1.2s ease-out forwards;
@@ -363,12 +363,23 @@ button:focus-visible {
     text-align: center;
 }
 
-/* Observacao abaixo do grafico. */
+/* Observação abaixo do gráfico. */
 .observacao {
+    background: #f1efff;
+    border-left: 6px solid #6d5bd0;
+    border-radius: 8px;
     color: #667066;
-    font-size: 0.92rem;
-    margin-top: 12px;
-    text-align: center;
+    font-size: 0.95rem;
+    margin-top: 18px;
+    padding: 16px;
+    text-align: left;
+}
+
+/* Título da explicação do gráfico. */
+.observacao h3 {
+    color: #31225f;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
 }
 
 /* Grade de cards da produção. */
@@ -398,7 +409,7 @@ button:focus-visible {
     padding: 18px;
 }
 
-/* Titulo do card. */
+/* Título do card. */
 .card-info h3 {
     font-size: 1.25rem;
     margin-bottom: 10px;
@@ -410,7 +421,7 @@ button:focus-visible {
     margin-top: 8px;
 }
 
-/* Mini painel climatico. */
+/* Mini painel climático. */
 .clima {
     background: #143121;
     border-radius: 8px;
@@ -422,7 +433,20 @@ button:focus-visible {
     padding: 24px;
 }
 
-/* Itens do painel climatico. */
+/* Explicação do quadro verde do clima. */
+.explicacao-clima {
+    grid-column: 1 / -1;
+}
+
+.explicacao-clima span {
+    color: #f3c84b;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+/* Itens do painel climático. */
 .clima div {
     background: rgba(255, 255, 255, 0.09);
     border-radius: 8px;
@@ -434,6 +458,37 @@ button:focus-visible {
     display: block;
     font-size: 2rem;
     margin: 4px 0;
+}
+
+/* Seção que aprofunda Brasil, Paraná e Manoel Ribas. */
+.contexto-brasil-parana {
+    background: #ffffff;
+}
+
+/* Grade dos cards de contexto. */
+.grade-contexto {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Card de contexto nacional, estadual e local. */
+.grade-contexto article {
+    background: #f4f7ef;
+    border: 1px solid #dfe8d8;
+    border-radius: 8px;
+    padding: 22px;
+}
+
+.grade-contexto h3 {
+    color: #315f2c;
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+}
+
+.grade-contexto p {
+    color: #526257;
+    margin-top: 8px;
 }
 
 /* Fundo da secao sustentabilidade. */
@@ -539,7 +594,7 @@ button:focus-visible {
     margin: 0 auto 24px;
 }
 
-/* Botoes que abrem os modais. */
+/* Botões que abrem os modais. */
 .grade-modais {
     display: flex;
     flex-wrap: wrap;
@@ -621,6 +676,87 @@ button:focus-visible {
     display: grid;
     gap: 18px;
     grid-template-columns: repeat(2, 1fr);
+}
+
+/* Dados reais de Manoel Ribas. */
+.dados-cidade {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 26px 0;
+}
+
+/* Linha do tempo de Manoel Ribas. */
+.linha-tempo-cidade {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 26px 0;
+}
+
+/* Cada marco histórico da linha do tempo. */
+.linha-tempo-cidade article {
+    background: #143121;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 22px;
+}
+
+.linha-tempo-cidade span {
+    color: #f3c84b;
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+/* Cards extras de identidade local. */
+.identidade-local {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 26px 0;
+}
+
+.identidade-local article {
+    background: #ffffff;
+    border: 1px solid #e4d7ad;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.identidade-local h3 {
+    color: #5d7f28;
+    font-size: 1.18rem;
+    margin-bottom: 8px;
+}
+
+.identidade-local p {
+    color: #526257;
+}
+
+/* Card de dado local. */
+.dados-cidade article {
+    background: #ffffff;
+    border: 1px solid #e4d7ad;
+    border-radius: 8px;
+    padding: 22px;
+    text-align: center;
+}
+
+/* Número principal do dado local. */
+.dados-cidade strong {
+    color: #5d7f28;
+    display: block;
+    font-size: 2rem;
+    line-height: 1.1;
+    margin-bottom: 8px;
+}
+
+/* Descrição do dado local. */
+.dados-cidade span {
+    color: #526257;
+    font-weight: 800;
 }
 
 /* Imagens do antes e depois. */
@@ -739,6 +875,128 @@ button:focus-visible {
     width: auto;
 }
 
+/* Seção do formulário de participação. */
+.participacao {
+    background: #eef6ed;
+}
+
+/* Seção dos vídeos. */
+.videos {
+    background: #f8fbff;
+}
+
+/* Grade dos vídeos. */
+.grade-videos {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Card de vídeo. */
+.grade-videos article {
+    background: #ffffff;
+    border: 1px solid #d7e8ef;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Área responsiva para o iframe do vídeo. */
+.video-responsivo {
+    aspect-ratio: 16 / 9;
+    background: #111811;
+    width: 100%;
+}
+
+.video-responsivo iframe {
+    border: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.grade-videos h3,
+.grade-videos p {
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+.grade-videos h3 {
+    font-size: 1.2rem;
+    margin-top: 16px;
+}
+
+.grade-videos p {
+    color: #526257;
+    margin: 8px 0 18px;
+}
+
+/* Formulário para mensagem do visitante. */
+.formulario-mensagem {
+    background: #ffffff;
+    border: 1px solid #dfe8d8;
+    border-radius: 8px;
+    display: grid;
+    gap: 12px;
+    margin: 0 auto;
+    max-width: 720px;
+    padding: 24px;
+}
+
+/* Textos dos campos do formulário. */
+.formulario-mensagem label {
+    font-weight: 800;
+}
+
+/* Campos de nome e mensagem. */
+.formulario-mensagem input,
+.formulario-mensagem textarea {
+    border: 1px solid #c8d6c1;
+    border-radius: 8px;
+    color: #1f2a24;
+    font: inherit;
+    padding: 12px;
+    resize: vertical;
+    width: 100%;
+}
+
+/* Botão do formulário. */
+.formulario-mensagem button {
+    background: #5d9d46;
+    color: #ffffff;
+    font-weight: 800;
+    padding: 12px 16px;
+}
+
+/* Mensagem de retorno depois do envio. */
+.retorno-formulario {
+    color: #2f6b2d;
+    font-weight: 800;
+    min-height: 28px;
+}
+
+/* Seção das fontes dos dados reais. */
+.fontes {
+    background: #ffffff;
+}
+
+/* Lista de links das fontes. */
+.lista-fontes {
+    display: grid;
+    gap: 12px;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+/* Cada fonte aparece como um link organizado. */
+.lista-fontes a {
+    background: #f4f7ef;
+    border: 1px solid #dfe8d8;
+    border-radius: 8px;
+    color: #143121;
+    font-weight: 800;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
 /* Ajustes de cores para o modo escuro. */
 body.modo-escuro .menu,
 body.modo-escuro .rodape {
@@ -750,8 +1008,11 @@ body.modo-escuro .area-menu {
 }
 
 body.modo-escuro .producao,
-body.modo-escuro .recursos,
-body.modo-escuro .problemas {
+body.modo-escuro .contexto-brasil-parana,
+body.modo-escuro .problemas,
+body.modo-escuro .participacao,
+body.modo-escuro .fontes,
+body.modo-escuro .videos {
     background: #101510;
 }
 
@@ -762,21 +1023,53 @@ body.modo-escuro .cidade {
 
 body.modo-escuro .painel-grafico,
 body.modo-escuro .card-info,
+body.modo-escuro .grade-contexto article,
 body.modo-escuro .bloco-problema,
 body.modo-escuro .bloco-solucao,
-body.modo-escuro .grade-recursos article,
 body.modo-escuro .voz-comunidade blockquote,
+body.modo-escuro .dados-cidade article,
+body.modo-escuro .identidade-local article,
+body.modo-escuro .formulario-mensagem,
+body.modo-escuro .grade-videos article,
+body.modo-escuro .lista-fontes a,
 body.modo-escuro .janela-modal {
     background: #1d261d;
     border-color: #334233;
     color: #edf5ea;
 }
 
+body.modo-escuro .lista-fontes a {
+    color: #edf5ea;
+}
+
 body.modo-escuro .cabecalho-secao p:last-child,
 body.modo-escuro .card-info p,
+body.modo-escuro .grade-contexto p,
 body.modo-escuro .observacao,
-body.modo-escuro .antes-depois figcaption {
+body.modo-escuro .antes-depois figcaption,
+body.modo-escuro .identidade-local p,
+body.modo-escuro .grade-videos p {
     color: #c3d3bf;
+}
+
+body.modo-escuro .observacao {
+    background: #241f37;
+    border-left-color: #b7a6ff;
+}
+
+body.modo-escuro .observacao h3,
+body.modo-escuro .grade-contexto h3,
+body.modo-escuro .dados-cidade strong,
+body.modo-escuro .dados-cidade span,
+body.modo-escuro .identidade-local h3 {
+    color: #edf5ea;
+}
+
+body.modo-escuro .formulario-mensagem input,
+body.modo-escuro .formulario-mensagem textarea {
+    background: #111811;
+    border-color: #334233;
+    color: #edf5ea;
 }
 
 body.modo-escuro .mapa-local {
@@ -794,13 +1087,19 @@ body.modo-escuro .botao-menu {
 /* Fundo escuro do modal. */
 .modal {
     align-items: center;
-    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.78);
     display: none;
     inset: 0;
     justify-content: center;
     padding: 24px;
     position: fixed;
     z-index: 20;
+}
+
+/* Escurece e trava visualmente a página quando o modal está aberto. */
+body.modal-aberto {
+    overflow: hidden;
 }
 
 /* Modal visivel. */
@@ -812,6 +1111,7 @@ body.modo-escuro .botao-menu {
 .janela-modal {
     background: #ffffff;
     border-radius: 8px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
     max-width: 480px;
     padding: 28px;
     position: relative;
@@ -829,11 +1129,16 @@ body.modo-escuro .botao-menu {
     width: 34px;
 }
 
-/* Titulo do modal. */
+/* Título do modal. */
 .janela-modal h3 {
     font-size: 1.7rem;
     margin-bottom: 10px;
     padding-right: 42px;
+}
+
+/* Texto do modal aceita quebras de linha feitas no JavaScript. */
+.janela-modal p {
+    white-space: pre-line;
 }
 
 /* Animacao do ceu. */
@@ -863,31 +1168,10 @@ body.modo-escuro .botao-menu {
     to { transform: rotate(360deg); }
 }
 
-/* Animacao do grafico. */
+/* Animação do gráfico. */
 @keyframes subirBarra {
     from { transform: scaleY(0); }
     to { transform: scaleY(1); }
-}
-
-/* Animacao das ondas do rio. */
-@keyframes ondaAgua {
-    from { transform: translateX(-18%) rotate(0deg); }
-    to { transform: translateX(18%) rotate(360deg); }
-}
-
-/* Animacao das gotas de agua. */
-@keyframes gotaSubindo {
-    from {
-        opacity: 0;
-        transform: translateY(30px) scale(0.7);
-    }
-    45% {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-90px) scale(1.2);
-    }
 }
 
 /* Ajustes para tablets. */
@@ -934,7 +1218,7 @@ body.modo-escuro .botao-menu {
 
     .grade-cards,
     .clima,
-    .grade-recursos,
+    .dados-cidade,
     .painel-problemas {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -990,7 +1274,7 @@ body.modo-escuro .botao-menu {
 
     .grade-cards,
     .clima,
-    .grade-recursos,
+    .dados-cidade,
     .painel-problemas,
     .comparativo-problemas,
     .antes-depois,
