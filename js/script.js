@@ -1,4 +1,3 @@
-// Conteúdos dos modais
 const conteudosModal = {
     solar: {
         titulo: "Energia Solar",
@@ -38,7 +37,6 @@ const conteudosModal = {
     }
 };
 
-// Elementos do DOM
 const modal = document.querySelector("#modal");
 const tituloModal = document.querySelector("#tituloModal");
 const textoModal = document.querySelector("#textoModal");
@@ -53,7 +51,6 @@ const retornoFormulario = document.getElementById("retornoFormulario");
 
 let tamanhoFonte = 100;
 
-// Funções do Modal
 function abrirModal(tipo) {
     const conteudo = conteudosModal[tipo];
     if (!conteudo) return;
@@ -78,7 +75,6 @@ function fecharJanelaModal() {
     document.body.classList.remove("modal-aberto");
 }
 
-// Eventos dos modais
 document.querySelectorAll("[data-modal]").forEach((botao) => {
     botao.addEventListener("click", () => abrirModal(botao.dataset.modal));
 });
@@ -99,7 +95,6 @@ if (modal) {
     });
 }
 
-// Voltar ao topo
 const voltarTopo = document.querySelector('.voltar-topo');
 if (voltarTopo) {
     voltarTopo.classList.add('escondido');
@@ -118,7 +113,6 @@ if (voltarTopo) {
     });
 }
 
-// Botão Transformar
 const botaoTransformar = document.querySelector("#botaoTransformar");
 if (botaoTransformar) {
     botaoTransformar.addEventListener("click", () => {
@@ -126,7 +120,6 @@ if (botaoTransformar) {
     });
 }
 
-// Controle de fonte
 function atualizarFonte() {
     document.documentElement.style.setProperty("--tamanho-fonte", `${tamanhoFonte}%`);
 }
@@ -149,7 +142,6 @@ if (botaoDiminuirFonte) {
     });
 }
 
-// Alternar tema (modo escuro)
 if (botaoTema) {
     botaoTema.addEventListener("click", () => {
         document.body.classList.toggle("modo-escuro");
@@ -159,7 +151,6 @@ if (botaoTema) {
     });
 }
 
-// MENU HAMBURGUER
 const botaoMenu = document.querySelector("#botaoMenu");
 const menu = document.querySelector(".menu");
 
@@ -175,7 +166,6 @@ if (botaoMenu && menu) {
     });
 }
 
-// Fecha o menu ao clicar em um link
 document.querySelectorAll(".links-menu a").forEach((link) => {
     link.addEventListener("click", () => {
         if (menu && window.innerWidth <= 900) {
@@ -189,7 +179,6 @@ document.querySelectorAll(".links-menu a").forEach((link) => {
     });
 });
 
-// Fecha o menu ao clicar fora dele (apenas mobile)
 document.addEventListener("click", (evento) => {
     const isMobile = window.innerWidth <= 900;
     if (isMobile && menu && menu.classList.contains("aberto")) {
@@ -204,7 +193,6 @@ document.addEventListener("click", (evento) => {
     }
 });
 
-// Fecha o menu ao redimensionar para desktop
 window.addEventListener("resize", () => {
     if (window.innerWidth > 900 && menu && menu.classList.contains("aberto")) {
         menu.classList.remove("aberto");
@@ -216,7 +204,6 @@ window.addEventListener("resize", () => {
     }
 });
 
-// Formulário de participação
 if (formularioMensagem) {
     formularioMensagem.addEventListener("submit", (evento) => {
         evento.preventDefault();
