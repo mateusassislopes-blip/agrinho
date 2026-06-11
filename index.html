@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Configurações básicas da página. oi -->
+    <!-- Configurações básicas da página. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Site Agrinho 2026 sobre produção agrícola, sustentabilidade, problemas ambientais, soluções e identidade local em Manoel Ribas, Paraná.">
-    <!-- Caminho do CSS: o arquivo de estilos agora fica dentro da pasta css. -->
     <link rel="stylesheet" href="css/style.css">
     <title>Do Paraná à Nossa Terra | Agrinho 2026</title>
 </head>
@@ -18,9 +17,13 @@
                 <span>Agrinho 2026</span>
             </a>
 
+            <!-- Botão hamburguer (aparece só no mobile) -->
+            <button class="btn-menu-mobile" id="botaoMenu" aria-label="Abrir menu" aria-expanded="false">
+                ☰
+            </button>
 
-
-                <!-- Os links abaixo levam para cada parte do site. -->
+            <!-- Conteúdo que será escondido no mobile -->
+            <div class="menu-interno">
                 <div class="links-menu">
                     <a href="#producao">Produção</a>
                     <a href="#brasil-parana">Brasil e Paraná</a>
@@ -30,17 +33,16 @@
                     <a href="#videos">Vídeos</a>
                 </div>
 
-                <!-- Controles de acessibilidade: mudam tema e tamanho das letras. -->
+                <!-- Controles de acessibilidade -->
                 <div class="acessibilidade" aria-label="Controles de acessibilidade">
                     <button type="button" id="diminuirFonte" aria-label="Diminuir tamanho das letras">A-</button>
                     <button type="button" id="aumentarFonte" aria-label="Aumentar tamanho das letras">A+</button>
                     <button type="button" id="alternarTema" aria-label="Alternar entre modo claro e escuro" aria-pressed="false">Modo escuro</button>
                 </div>
-
-            
+            </div>
         </nav>
 
-        <!-- Hero: primeira tela do site. Use img/1.jpg, img/2.jpg ou img/3.jpeg como fundo no CSS. -->
+        <!-- Hero: primeira tela do site -->
         <section class="hero">
             <div class="ceu-animado" aria-hidden="true"></div>
             <div class="folhas" aria-hidden="true">
@@ -57,19 +59,14 @@
                     Uma jornada pela produção agrícola, pela preservação da natureza e pela identidade de Manoel Ribas, Paraná.
                 </p>
 
-                <!-- Botões rápidos pedidos no enunciado. Cada botão chama uma função no JavaScript. -->
-
                 <div class="botoes-rapidos" aria-label="Botões rápidos">
-
-                <div class="botoes-rapidos" aria-label="Botoes rapidos">
-
                     <button type="button" data-acao="curiosidade">Você sabia?</button>
                     <button type="button" data-acao="impacto">Ver impacto</button>
                     <button type="button" data-acao="solucao">Solução sustentável</button>
                 </div>
             </div>
 
-            <!-- Trator feito com CSS para dar movimento sem precisar de outra imagem. -->
+            <!-- Trator feito com CSS -->
             <div class="trator" aria-hidden="true">
                 <div class="cabine"></div>
                 <div class="corpo-trator"></div>
@@ -80,21 +77,7 @@
     </header>
 
     <main>
-
-        <!-- Seção 1: Produção Agrícola com dados reais de fontes oficiais. -->
-        <section class="secao producao" id="producao">
-            <div class="cabecalho-secao">
-                <p class="etiqueta">Produção Agrícola</p>
-                <h2>Paraná e Brasil: produção, economia e inovação no campo</h2>
-                <p>
-                    O agronegócio brasileiro representou 23,2% do PIB do Brasil em 2024, segundo CEPEA/CNA. No Paraná, o campo se destaca pela soja, milho, café, leite e carne de frango, ligando agricultura, indústria, transporte, comércio e tecnologia.
-                </p>
-            </div>
-
-            <!-- Gráfico animado: as alturas são visuais, porque os produtos usam unidades diferentes. -->
-            <article class="painel-grafico" aria-label="Gráfico animado com dados reais da produção agropecuária paranaense">
-
-        <!-- Seção 1: Produção Agrícola. -->
+        <!-- Seção 1: Produção Agrícola -->
         <section class="secao producao" id="producao">
             <div class="cabecalho-secao">
                 <p class="etiqueta">Produção Agrícola</p>
@@ -104,9 +87,7 @@
                 </p>
             </div>
 
-            <!-- Gráfico animado: mude os valores no atributo style para alterar as alturas. -->
             <article class="painel-grafico" aria-label="Gráfico animado de produção agrícola">
-
                 <div class="grafico">
                     <div class="barra" style="--valor: 92%">
                         <span>Soja</span>
@@ -118,11 +99,7 @@
                     </div>
                     <div class="barra" style="--valor: 42%">
                         <span>Café</span>
-
                         <strong>750 mil sacas</strong>
-
-                        <strong>42%</strong>
-
                     </div>
                     <div class="barra" style="--valor: 66%">
                         <span>Leite</span>
@@ -133,29 +110,16 @@
                         <strong>4,6 mi t</strong>
                     </div>
                 </div>
-
-               
-
-            <!-- Cards informativos com imagem, dado real, exemplo e impacto econômico. -->
-
                 <p class="observacao">Valores ilustrativos para representar a força de cada cadeia produtiva.</p>
             </article>
-
-            <!-- Cards informativos com imagem, curiosidade e impacto econômico. -->
 
             <div class="grade-cards">
                 <article class="card-info">
                     <img src="img/1.jpg" alt="Plantação no campo">
                     <div>
-
                         <h3>Grãos no Paraná</h3>
                         <p><strong>Dado real:</strong> o Deral projetou 5,8 milhões de hectares de soja e produção de até 22,3 milhões de toneladas na safra 2024/25.</p>
                         <p><strong>Impacto:</strong> grãos movimentam cooperativas, armazenagem, transporte, portos, agroindústria e empregos no interior.</p>
-
-                        <h3>Plantações do Paraná</h3>
-                        <p><strong>Curiosidade:</strong> o estado se destaca em grãos e na integração entre agricultura e agroindústria.</p>
-                        <p><strong>Impacto:</strong> movimenta transporte, comercio, cooperativas e empregos.</p>
-
                     </div>
                 </article>
 
@@ -163,13 +127,8 @@
                     <img src="img/2.jpg" alt="Paisagem rural com área verde">
                     <div>
                         <h3>Tecnologia no campo</h3>
-
                         <p><strong>Exemplos:</strong> GPS em máquinas, sensores de solo, drones, previsão climática e aplicativos de gestão rural.</p>
                         <p><strong>Impacto:</strong> a tecnologia ajuda a aplicar água, corretivos e defensivos com mais precisão, reduzindo desperdícios.</p>
-
-                        <p><strong>Curiosidade:</strong> drones, sensores e aplicativos ajudam o produtor a decidir melhor.</p>
-                        <p><strong>Impacto:</strong> aumenta produtividade e reduz desperdício de água, energia e insumos.</p>
-
                     </div>
                 </article>
 
@@ -177,54 +136,38 @@
                     <img src="img/3.jpeg" alt="Natureza e área rural">
                     <div>
                         <h3>Agricultura familiar</h3>
-
                         <p><strong>Importância:</strong> pequenas propriedades abastecem feiras, mercados, merenda escolar e cadeias locais de alimentos.</p>
                         <p><strong>Impacto:</strong> fortalece a renda da comunidade, preserva saberes rurais e aproxima campo e cidade.</p>
-
-                        <p><strong>Curiosidade:</strong> muitas famílias produzem alimentos que chegam direto a feiras e escolas.</p>
-                        <p><strong>Impacto:</strong> fortalece a renda local e mantém a cultura rural viva.</p>
-
                     </div>
                 </article>
             </div>
 
-
-            
-
-            <!-- Mini painel climático. Os textos podem ser alterados conforme sua cidade. -->
             <aside class="clima" aria-label="Mini painel climático">
                 <div>
                     <span>Chuva</span>
                     <strong>18 mm</strong>
                     <p>Ajuda na germinação, mas o excesso pode atrapalhar a colheita.</p>
-
                 </div>
                 <div>
                     <span>Clima</span>
                     <strong>Risco</strong>
-                    <p>Seca, geada e calor forte podem reduzir produtividade. O Deral destacou perdas por seca e geadas no trigo em 2024.</p>
+                    <p>Seca, geada e calor forte podem reduzir produtividade.</p>
                 </div>
                 <div>
                     <span>Produção</span>
-
                     <strong>Decisão</strong>
-                    <p>Previsão do tempo, conservação do solo e assistência técnica ajudam o produtor a escolher o momento certo de agir.</p>
-
-                    <strong>Boa</strong>
-                    <p>Solo cuidado e previsão do tempo melhoram o planejamento.</p>
-
+                    <p>Previsão do tempo, conservação do solo e assistência técnica ajudam o produtor.</p>
                 </div>
             </aside>
         </section>
 
-
-        <!-- Seção extra para explicar melhor o papel do Brasil e do Paraná no agro. -->
+        <!-- Seção: Brasil e Paraná -->
         <section class="secao contexto-brasil-parana" id="brasil-parana">
             <div class="cabecalho-secao">
                 <p class="etiqueta">Brasil e Paraná</p>
                 <h2>Do cenário nacional até a realidade local</h2>
                 <p>
-                    Entender o agro brasileiro ajuda a compreender por que o Paraná tem papel tão importante na produção de alimentos, tecnologia e desenvolvimento regional.
+                    Entender o agro brasileiro ajuda a compreender por que o Paraná tem papel tão importante na produção de alimentos.
                 </p>
             </div>
 
@@ -234,18 +177,12 @@
                     <p>
                         O agronegócio brasileiro envolve insumos, produção rural, agroindústria e serviços. Em 2024, segundo CEPEA/CNA, o setor respondeu por 23,2% do PIB do país.
                     </p>
-                    <p>
-                        Isso significa que o campo influencia empregos, exportações, transporte, pesquisa, alimentação e preços nas cidades.
-                    </p>
                 </article>
 
                 <article>
                     <h3>Paraná</h3>
                     <p>
-                        O Paraná se destaca em grãos, leite, carne de frango, suínos, ovos, café, trigo e cooperativismo. O estado também abriga centros de pesquisa importantes, como a Embrapa Soja, em Londrina.
-                    </p>
-                    <p>
-                        A força paranaense vem da união entre produtores, cooperativas, tecnologia, logística e agroindústrias.
+                        O Paraná se destaca em grãos, leite, carne de frango, suínos, ovos, café, trigo e cooperativismo. O estado também abriga centros de pesquisa importantes.
                     </p>
                 </article>
 
@@ -254,28 +191,20 @@
                     <p>
                         Em Manoel Ribas, a identidade rural aparece na história da comunidade, nas famílias do campo, nas escolas, nas áreas naturais e na relação diária entre produção e preservação.
                     </p>
-                    <p>
-                        O desafio local é crescer sem perder as raízes e sem descuidar do solo, da água e da paisagem.
-                    </p>
                 </article>
             </div>
         </section>
 
-        <!-- Seção 2: Sustentabilidade. -->
+        <!-- Seção 2: Sustentabilidade -->
         <section class="secao sustentabilidade" id="sustentabilidade">
             <div class="cabecalho-secao">
                 <p class="etiqueta">Sustentabilidade</p>
                 <h2>Produzir bem também é preservar</h2>
                 <p>
-                    Sustentabilidade no campo significa produzir alimento, gerar renda e, ao mesmo tempo, cuidar do solo, da água, da biodiversidade e da qualidade de vida da população.
+                    Sustentabilidade no campo significa produzir alimento, gerar renda e, ao mesmo tempo, cuidar do solo, da água, da biodiversidade e da qualidade de vida.
                 </p>
             </div>
 
-
-        
-
-
-            <!-- Cenário que muda quando o usuário clica no botão Transformar. -->
             <div class="cenario" id="cenarioSustentavel">
                 <div class="sol"></div>
                 <div class="fumaca"></div>
@@ -289,7 +218,6 @@
 
             <button class="botao-transformar" type="button" id="botaoTransformar">Transformar</button>
 
-            <!-- Botões que abrem pequenas janelas/modais. -->
             <div class="grade-modais">
                 <button type="button" data-modal="solar">Energia Solar</button>
                 <button type="button" data-modal="reflorestamento">Reflorestamento</button>
@@ -297,125 +225,27 @@
             </div>
         </section>
 
-
-        <!-- Seção 3: problemas reais e soluções sustentáveis. -->
-
-        <!-- Seção 3: Problemas e Soluções. Substitui a antiga parte sobre rios. -->
-
-        <section class="secao problemas" id="problemas">
-            <div class="cabecalho-secao">
-                <p class="etiqueta">Problemas e Soluções</p>
-                <h2>Desafios ambientais pedem inovação e responsabilidade</h2>
-                <p>
-
-                    No Paraná e no Brasil, clima, solo, água, resíduos e conservação ambiental são temas ligados diretamente à produção de alimentos e ao futuro das cidades.
-                </p>
-            </div>
-
-            <!-- Bloco com imagem e comparação entre problemas e soluções. -->
-
-                    O campo e a cidade enfrentam problemas ambientais, mas a tecnologia e a participação da comunidade ajudam a construir soluções sustentáveis.
-                </p>
-            </div>
-
-            <!-- Bloco com imagem e comparativo entre problemas e soluções. -->
-
-            <div class="painel-problemas">
-                <img src="img/3.jpeg" alt="Área rural usada como imagem ilustrativa para problemas e soluções ambientais">
-
-                <div class="comparativo-problemas">
-                    <article class="bloco-problema">
-                        <h3>Principais problemas</h3>
-                        <ul>
-
-                            <li>Perdas por seca, calor intenso ou geadas em lavouras sensíveis.</li>
-                            <li>Erosão e compactação do solo quando falta cobertura vegetal.</li>
-                            <li>Desperdício de água em irrigação e uso urbano sem controle.</li>
-                            <li>Descarte incorreto de resíduos, embalagens e lixo comum.</li>
-
-                            <li>Desperdício de água na produção e no consumo.</li>
-                            <li>Desgaste do solo por uso inadequado.</li>
-                            <li>Poluição causada por descarte incorreto de resíduos.</li>
-                            <li>Redução de áreas verdes e perda de biodiversidade.</li>
-
-                        </ul>
-                        <button type="button" data-modal="problemas">Entender problemas</button>
-                    </article>
-
-                    <article class="bloco-solucao">
-                        <h3>Soluções sustentáveis</h3>
-                        <ul>
-
-                            <li>Plantio direto, rotação de culturas e cobertura do solo.</li>
-                            <li>Irrigação inteligente e captação/reaproveitamento de água.</li>
-                            <li>Energia solar em propriedades, escolas e espaços públicos.</li>
-                            <li>Reflorestamento, proteção de nascentes e educação ambiental.</li>
-
-                            <li>Irrigação inteligente e reaproveitamento de água.</li>
-                            <li>Plantio direto, rotação de culturas e cobertura do solo.</li>
-                            <li>Coleta seletiva, compostagem e educação ambiental.</li>
-                            <li>Reflorestamento e proteção de nascentes.</li>
-
-                        </ul>
-                        <button type="button" data-modal="solucoes">Ver soluções</button>
-                    </article>
-                </div>
-            </div>
-
-
-            <!-- Modais de aprofundamento. -->
-
-            <!-- Modais explicativos extras para aprofundar o conteúdo. -->
-
-            <div class="grade-modais">
-                <button type="button" data-modal="solo">Preservação do solo</button>
-                <button type="button" data-modal="residuos">Redução da poluição</button>
-                <button type="button" data-modal="biodiversidade">Biodiversidade</button>
-            </div>
-        </section>
-
-
-        <!-- Seção 4: Nossa Cidade, com dados reais de Manoel Ribas. -->
-
-        <!-- Seção 4: Nossa Cidade. Conteúdo personalizado para Manoel Ribas, Paraná. -->
-
+        <!-- Seção 4: Nossa Cidade -->
         <section class="secao cidade" id="cidade">
             <div class="cabecalho-secao">
                 <p class="etiqueta">Manoel Ribas - Paraná</p>
                 <h2>Identidade local: raízes rurais e futuro sustentável</h2>
                 <p>
-
-                    Manoel Ribas tem 571,451 km² de área territorial, população estimada de 14.675 pessoas em 2025 e PIB per capita de R$ 46.081,20 em 2023, segundo o IBGE. A cidade surgiu da localidade de Campina Alta e alcançou autonomia municipal em 1955.
+                    Manoel Ribas tem 571,451 km² de área territorial, população estimada de 14.675 pessoas em 2025 e PIB per capita de R$ 46.081,20 em 2023, segundo o IBGE.
                 </p>
             </div>
 
-            <!-- Painel de identidade local. Depois você pode trocar as imagens por fotos reais da cidade. -->
             <div class="antes-depois">
                 <figure>
-                    <img src="img/1.jpg" alt="Paisagem rural representando a origem agrícola de Manoel Ribas">
-                    <figcaption>Raízes: Campina Alta, vida rural e formação da comunidade manoel-ribense</figcaption>
+                    <img src="img/1.jpg" alt="Paisagem rural representando a origem agrícola">
+                    <figcaption>Raízes: Campina Alta, vida rural e formação da comunidade</figcaption>
                 </figure>
                 <figure>
                     <img src="img/2.jpg" alt="Paisagem representando desenvolvimento local sustentável">
                     <figcaption>Futuro: educação, tecnologia, preservação ambiental e produção responsável</figcaption>
-                 Manoel Ribas nasceu a partir da localidade de Campina Alta, foi elevada a município em 5 de julho de 1955 e carrega uma forte relação com o campo, a comunidade e o Centro do Paraná.
-                </p>
-            </div>
-
-            <!-- Antes e depois: depois você pode trocar por fotos reais de Manoel Ribas. -->
-            <div class="antes-depois">
-                <figure>
-                    <img src="img/1.jpg" alt="Antes: paisagem rural ou área natural">
-                    <figcaption>Antes: natureza e vida rural</figcaption>
-                </figure>
-                <figure>
-                    <img src="img/2.jpg" alt="Depois: cidade em evolução">
-                    <figcaption>Depois: Manoel Ribas crescendo com responsabilidade</figcaption>
-
                 </figure>
             </div>
 
-            <!-- Dados reais em destaque para dar identidade à cidade. -->
             <div class="dados-cidade">
                 <article>
                     <strong>14.675</strong>
@@ -431,99 +261,94 @@
                 </article>
             </div>
 
-            <!-- Linha do tempo local para mostrar melhor a identidade de Manoel Ribas. -->
-            <div class="linha-tempo-cidade" aria-label="Linha do tempo de Manoel Ribas">
-                <article>
-                    <span>Campina Alta</span>
-                    <p>Localidade que deu origem ao município, marcada pela ocupação, pelo trabalho no campo e pela formação da comunidade.</p>
-                </article>
-                <article>
-                    <span>1947</span>
-                    <p>O território foi elevado à categoria de distrito administrativo com a denominação de Manoel Ribas.</p>
-                </article>
-                <article>
-                    <span>1955</span>
-                    <p>Manoel Ribas alcançou autonomia municipal, fortalecendo sua própria história no Centro do Paraná.</p>
-                </article>
-            </div>
-
-            <!-- Cards de identidade local: podem receber fotos e informações mais específicas depois. -->
             <div class="identidade-local">
                 <article>
                     <h3>Raízes rurais</h3>
-                    <p>A vida no campo faz parte da memória local: famílias, estradas rurais, produção de alimentos, criação de animais e convivência comunitária.</p>
+                    <p>A vida no campo faz parte da memória local: famílias, estradas rurais, produção de alimentos e convivência comunitária.</p>
                 </article>
                 <article>
                     <h3>Educação e juventude</h3>
-                    <p>As escolas ajudam a transformar conhecimento em cuidado com a cidade, unindo tecnologia, pesquisa, cultura e responsabilidade ambiental.</p>
+                    <p>As escolas ajudam a transformar conhecimento em cuidado com a cidade, unindo tecnologia, pesquisa e responsabilidade ambiental.</p>
                 </article>
                 <article>
                     <h3>Desafios ambientais</h3>
-                    <p>Entre os desafios estão preservar áreas verdes, cuidar do solo, evitar lixo em locais inadequados e proteger recursos naturais para as próximas gerações.</p>
+                    <p>Entre os desafios estão preservar áreas verdes, cuidar do solo e proteger recursos naturais para as próximas gerações.</p>
                 </article>
                 <article>
                     <h3>Futuro sustentável</h3>
-                    <p>Manoel Ribas pode crescer com energia limpa, hortas escolares, coleta seletiva, recuperação de nascentes e valorização dos produtores locais.</p>
+                    <p>Manoel Ribas pode crescer com energia limpa, hortas escolares, coleta seletiva e valorização dos produtores locais.</p>
                 </article>
             </div>
 
-            <!-- Voz da comunidade com frases curtas. -->
-            <div class="voz-comunidade">
-                <blockquote>“Nossa terra é nosso futuro.”</blockquote>
-                <blockquote>“Cuidar de Manoel Ribas é preservar nossas raízes.”</blockquote>x
-
-
-
-            <!-- Mapa local ilustrativo. Mude os pontos para lugares reais da sua cidade. -->
-            <div class="mapa-local" aria-label="Mapa local ilustrativo">
-                <div class="linha-rio"></div>
-                <span class="ponto ponto-rio">Área natural</span>
-                <span class="ponto ponto-verde">Área verde</span>
-                <span class="ponto ponto-agro">Agricultura</span>
-
-                <span class="ponto ponto-escola">Escola</span>
-                <span class="ponto ponto-projeto">Ações ambientais</span>
+            <div class="mapa-local" aria-label="Mapa de Manoel Ribas, Paraná">
+                <iframe
+                    src="https://www.google.com/maps?q=Manoel+Ribas,+Paraná,+Brasil&output=embed"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </section>
 
-        <!-- Seção de vídeos para aprofundar o conteúdo com material audiovisual. -->
-        <section class="secao videos" id="videos">
-            <div class="cabecalho-secao">
-                <p class="etiqueta">Vídeos</p>
-                <h2>Aprenda mais em vídeo</h2>
-                <p>
-                    Estes vídeos ajudam a complementar o conteúdo do site com exemplos sobre agricultura, sustentabilidade e inovação no campo.
-                </p>
+        <!-- Seção de vídeos -->
+<section class="secao videos" id="videos">
+    <div class="cabecalho-secao">
+        <p class="etiqueta">Vídeos</p>
+        <h2>Aprenda mais em vídeo</h2>
+        <p>
+            Estes vídeos ajudam a complementar o conteúdo do site com exemplos sobre agricultura, sustentabilidade e inovação no campo.
+        </p>
+    </div>
+
+    <div class="grade-videos">
+        <article>
+            <div class="video-responsivo">
+                <iframe 
+                    src="https://www.youtube.com/embed/hTZJwQ-SxGY?rel=0&cc_lang_pref=pt&cc_load_policy=1" 
+                    title="Embrapa Soja e inovação na sojicultura brasileira" 
+                    loading="lazy" 
+                    allowfullscreen
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
             </div>
+            <h3>Pesquisa e inovação no agro</h3>
+            <p>Mostra como ciência, tecnologia e instituições de pesquisa ajudam a melhorar a produção agrícola.</p>
+        </article>
 
-            <div class="grade-videos">
-                <article>
-                    <div class="video-responsivo">
-                        <iframe src="https://www.youtube.com/embed/hTZJwQ-SxGY" title="Embrapa Soja e inovação na sojicultura brasileira" loading="lazy" allowfullscreen></iframe>
-                    </div>
-                    <h3>Pesquisa e inovação no agro</h3>
-                    <p>Mostra como ciência, tecnologia e instituições de pesquisa ajudam a melhorar a produção agrícola.</p>
-                </article>
-
-                <article>
-                    <div class="video-responsivo">
-                        <iframe src="https://www.youtube.com/embed/7GcwIe74s3M" title="Agricultura de baixo carbono" loading="lazy" allowfullscreen></iframe>
-                    </div>
-                    <h3>Agricultura de baixo carbono</h3>
-                    <p>Explica práticas que reduzem impactos ambientais e tornam a produção mais sustentável.</p>
-                </article>
-
-                <article>
-                    <div class="video-responsivo">
-                        <iframe src="https://www.youtube.com/embed/F43-tgF0Nzw" title="Bioma e meio ambiente" loading="lazy" allowfullscreen></iframe>
-                    </div>
-                    <h3>Natureza e equilíbrio</h3>
-                    <p>Ajuda a entender por que preservar biodiversidade e áreas naturais é importante para o futuro.</p>
-                </article>
+        <article>
+            <div class="video-responsivo">
+                <iframe 
+                    src="https://www.youtube.com/embed/7GcwIe74s3M?rel=0&cc_lang_pref=pt&cc_load_policy=1" 
+                    title="Agricultura de baixo carbono" 
+                    loading="lazy" 
+                    allowfullscreen
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
             </div>
-        </section>
+            <h3>Agricultura de baixo carbono</h3>
+            <p>Explica práticas que reduzem impactos ambientais e tornam a produção mais sustentável.</p>
+        </article>
 
-        <!-- Formulário simples de participação. Ele não envia para servidor; mostra uma mensagem na tela. -->
+        <article>
+            <div class="video-responsivo">
+                <iframe 
+                    src="https://www.youtube.com/embed/F43-tgF0Nzw?rel=0&cc_lang_pref=pt&cc_load_policy=1" 
+                    title="Bioma e meio ambiente" 
+                    loading="lazy" 
+                    allowfullscreen
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+            </div>
+            <h3>Natureza e equilíbrio</h3>
+            <p>Ajuda a entender por que preservar biodiversidade e áreas naturais é importante para o futuro.</p>
+        </article>
+    </div>
+</section>
+
+        <!-- Formulário de participação -->
         <section class="secao participacao" id="participacao">
             <div class="cabecalho-secao">
                 <p class="etiqueta">Participe</p>
@@ -545,7 +370,7 @@
             </form>
         </section>
 
-        <!-- Fontes usadas para os dados reais do site. -->
+        <!-- Fontes -->
         <section class="secao fontes" id="fontes">
             <div class="cabecalho-secao">
                 <p class="etiqueta">Fontes</p>
@@ -558,23 +383,20 @@
             <div class="lista-fontes">
                 <a href="https://www.ibge.gov.br/cidades-e-estados/pr/manoel-ribas.html" target="_blank" rel="noopener">IBGE - Manoel Ribas</a>
                 <a href="https://www.agricultura.pr.gov.br/deral/ProducaoAnual" target="_blank" rel="noopener">SEAB/DERAL - Produção Agropecuária</a>
-                <a href="https://www.parana.pr.gov.br/aen/Noticia/Deral-preve-crescimento-da-safra-paranaense-de-soja-milho-feijao-e-batata-em-202425" target="_blank" rel="noopener">Governo do Paraná - Safra 2024/25</a>
                 <a href="https://www.cepea.org.br/br/releases/pib-agro-cepea-desempenho-do-4-trimestre-reverte-tendencia-de-queda-anual-e-pib-do-agronegocio-avanca-1-81-em-2024.aspx" target="_blank" rel="noopener">CEPEA/CNA - PIB do Agronegócio</a>
-                <a href="https://www.embrapa.br/busca-de-videos" target="_blank" rel="noopener">Embrapa - vídeos e conteúdos técnicos</a>
             </div>
         </section>
     </main>
 
-    <!-- Rodapé simples para fechar o trabalho. -->
     <footer class="rodape">
         <img class="logo-colegio" src="img/logo_reni.jpeg" alt="Logo do colégio">
-        <p>Site desenvolvido por Mateus Felipe de Assis Lopes para o Concurso Agrinho 2026.</p>
+        <p>Site desenvolvido para o Concurso Agrinho 2026.</p>
     </footer>
 
-    <!-- Seta para voltar rapidamente ao topo do site. -->
+    <!-- Seta para voltar ao topo -->
     <a class="voltar-topo" href="#inicio" aria-label="Voltar ao topo">↑</a>
 
-    <!-- Modal reutilizado pelos botões de sustentabilidade e pelos botões rápidos. -->
+    <!-- Modal -->
     <div class="modal" id="modal" aria-hidden="true">
         <div class="janela-modal" role="dialog" aria-modal="true" aria-labelledby="tituloModal">
             <button class="fechar-modal" type="button" id="fecharModal" aria-label="Fechar janela">X</button>
@@ -583,7 +405,6 @@
         </div>
     </div>
 
-    <!-- Caminho do JavaScript: o arquivo de interacoes agora fica dentro da pasta js. -->
     <script src="js/script.js"></script>
 </body>
 </html>

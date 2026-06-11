@@ -1,8 +1,8 @@
-// Conteúdos dos modais. Para mudar as mensagens, edite os textos abaixo.
+// Conteúdos dos modais
 const conteudosModal = {
     solar: {
         titulo: "Energia Solar",
-        texto: "A energia solar transforma a luz do sol em eletricidade e pode ser usada em propriedades rurais, escolas, agroindústrias e sistemas de bombeamento de água.\n\nExemplos: placas solares para reduzir a conta de luz de aviários, ordenhadeiras, câmaras frias e irrigação. No campo, isso ajuda a diminuir custos e reduz a dependência de fontes mais poluentes."
+        texto: "A energia solar transforma a luz do sol em eletricidade e pode ser usada em propriedades rurais, escolas, agroindústrias e sistemas de bombeamento de água.\n\nExemplos: placas solares para reduzir a conta de luz de aviários, ordenhadeiras, câmaras frias e irrigação. No campo, isso ajuda a diminuir custos e reduzir a dependência de fontes mais poluentes."
     },
     reflorestamento: {
         titulo: "Reflorestamento",
@@ -24,14 +24,6 @@ const conteudosModal = {
         titulo: "Solução sustentável",
         texto: "Soluções sustentáveis unem conhecimento tradicional, ciência e tecnologia. Não é produzir menos: é produzir melhor, com planejamento e responsabilidade.\n\nExemplos: energia solar, biodigestores, compostagem, agricultura de precisão, coleta seletiva, recuperação de matas ciliares e educação ambiental nas escolas."
     },
-    problemas: {
-        titulo: "Principais problemas",
-        texto: "Os principais problemas ambientais ligados ao campo e à cidade são erosão, desperdício de água, descarte incorreto de resíduos, perda de vegetação nativa e impactos climáticos.\n\nExemplos reais: seca pode reduzir produtividade; geadas podem atingir culturas sensíveis; lixo descartado de forma errada pode chegar ao solo e à água; falta de cobertura vegetal deixa o solo mais frágil."
-    },
-    solucoes: {
-        titulo: "Soluções sustentáveis",
-        texto: "As soluções precisam acontecer em conjunto: produtor rural, escola, poder público, famílias e empresas.\n\nExemplos práticos: plantio direto para proteger o solo, rotação de culturas para melhorar nutrientes, coleta seletiva para reduzir poluição, compostagem para transformar resíduos orgânicos em adubo e reflorestamento para proteger nascentes."
-    },
     solo: {
         titulo: "Preservação do solo",
         texto: "Solo saudável é base da produção de alimentos. Quando o solo perde matéria orgânica ou sofre erosão, a produtividade cai e a água da chuva carrega terra para estradas, rios e áreas baixas.\n\nExemplos de cuidado: manter palhada sobre o solo, usar curvas de nível, terraceamento, adubação correta, rotação de culturas e análise de solo."
@@ -46,7 +38,7 @@ const conteudosModal = {
     }
 };
 
-// Pegamos os elementos do HTML para controlar a janela modal.
+// Elementos do DOM
 const modal = document.querySelector("#modal");
 const tituloModal = document.querySelector("#tituloModal");
 const textoModal = document.querySelector("#textoModal");
@@ -54,26 +46,17 @@ const fecharModal = document.querySelector("#fecharModal");
 const botaoTema = document.querySelector("#alternarTema");
 const botaoAumentarFonte = document.querySelector("#aumentarFonte");
 const botaoDiminuirFonte = document.querySelector("#diminuirFonte");
+const formularioMensagem = document.getElementById("formularioMensagem");
+const nomeVisitante = document.getElementById("nomeVisitante");
+const mensagemVisitante = document.getElementById("mensagemVisitante");
+const retornoFormulario = document.getElementById("retornoFormulario");
 
-const botaoMenu = document.querySelector("#botaoMenu");
-const menu = document.querySelector(".menu");
-const formularioMensagem = document.querySelector("#formularioMensagem");
-const nomeVisitante = document.querySelector("#nomeVisitante");
-const mensagemVisitante = document.querySelector("#mensagemVisitante");
-const retornoFormulario = document.querySelector("#retornoFormulario");
-
-
-
-// Esta variável controla o tamanho das letras. O valor 100 representa 100%.
 let tamanhoFonte = 100;
 
-// Esta função abre a janela modal com o conteúdo escolhido.
+// Funções do Modal
 function abrirModal(tipo) {
     const conteudo = conteudosModal[tipo];
-
-    if (!conteudo) {
-        return;
-    }
+    if (!conteudo) return;
 
     tituloModal.textContent = conteudo.titulo;
     textoModal.textContent = conteudo.texto;
@@ -82,102 +65,177 @@ function abrirModal(tipo) {
     document.body.classList.add("modal-aberto");
 }
 
-// Esta função fecha a janela modal.
 function fecharJanelaModal() {
+    const iframeExistente = document.querySelector('#modalVideo');
+    if (iframeExistente) {
+        iframeExistente.remove();
+    }
+    if (textoModal) {
+        textoModal.style.display = '';
+    }
     modal.classList.remove("ativo");
     modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-aberto");
 }
 
-// Ativa os botões que possuem data-modal.
+// Eventos dos modais
 document.querySelectorAll("[data-modal]").forEach((botao) => {
     botao.addEventListener("click", () => abrirModal(botao.dataset.modal));
 });
 
-// Ativa os botões rápidos do topo.
 document.querySelectorAll("[data-acao]").forEach((botao) => {
     botao.addEventListener("click", () => abrirModal(botao.dataset.acao));
 });
 
-// Fecha o modal no botão X.
-fecharModal.addEventListener("click", fecharJanelaModal);
+if (fecharModal) {
+    fecharModal.addEventListener("click", fecharJanelaModal);
+}
 
-// Fecha o modal quando o usuário clica fora da janela.
-modal.addEventListener("click", (evento) => {
-    if (evento.target === modal) {
-        fecharJanelaModal();
-    }
-});
+if (modal) {
+    modal.addEventListener("click", (evento) => {
+        if (evento.target === modal) {
+            fecharJanelaModal();
+        }
+    });
+}
 
-// Botão Transformar: adiciona ou remove a classe que deixa o cenário verde.
-document.querySelector("#botaoTransformar").addEventListener("click", () => {
-    document.querySelector("#cenarioSustentavel").classList.toggle("transformado");
-});
+// Voltar ao topo
+const voltarTopo = document.querySelector('.voltar-topo');
+if (voltarTopo) {
+    voltarTopo.classList.add('escondido');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            voltarTopo.classList.remove('escondido');
+            voltarTopo.classList.add('visivel');
+        } else {
+            voltarTopo.classList.add('escondido');
+            voltarTopo.classList.remove('visivel');
+        }
+    });
+    voltarTopo.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('#inicio')?.scrollIntoView({ behavior: 'smooth' });
+    });
+}
 
-// Atualiza o tamanho das letras usando uma variável CSS criada no arquivo style.css.
+// Botão Transformar
+const botaoTransformar = document.querySelector("#botaoTransformar");
+if (botaoTransformar) {
+    botaoTransformar.addEventListener("click", () => {
+        document.querySelector("#cenarioSustentavel").classList.toggle("transformado");
+    });
+}
+
+// Controle de fonte
 function atualizarFonte() {
     document.documentElement.style.setProperty("--tamanho-fonte", `${tamanhoFonte}%`);
 }
 
-// Aumenta as letras sem deixar passar de 130%, para manter o layout organizado.
-botaoAumentarFonte.addEventListener("click", () => {
-    if (tamanhoFonte < 130) {
-        tamanhoFonte += 10;
-        atualizarFonte();
-    }
-});
+if (botaoAumentarFonte) {
+    botaoAumentarFonte.addEventListener("click", () => {
+        if (tamanhoFonte < 130) {
+            tamanhoFonte += 10;
+            atualizarFonte();
+        }
+    });
+}
 
-// Diminui as letras sem deixar menor que 90%, mantendo a leitura confortável.
-botaoDiminuirFonte.addEventListener("click", () => {
-    if (tamanhoFonte > 90) {
-        tamanhoFonte -= 10;
-        atualizarFonte();
-    }
-});
+if (botaoDiminuirFonte) {
+    botaoDiminuirFonte.addEventListener("click", () => {
+        if (tamanhoFonte > 90) {
+            tamanhoFonte -= 10;
+            atualizarFonte();
+        }
+    });
+}
 
-// Alterna entre modo claro e modo escuro.
-botaoTema.addEventListener("click", () => {
-    document.body.classList.toggle("modo-escuro");
+// Alternar tema (modo escuro)
+if (botaoTema) {
+    botaoTema.addEventListener("click", () => {
+        document.body.classList.toggle("modo-escuro");
+        const escuroAtivo = document.body.classList.contains("modo-escuro");
+        botaoTema.textContent = escuroAtivo ? "Modo claro" : "Modo escuro";
+        botaoTema.setAttribute("aria-pressed", escuroAtivo.toString());
+    });
+}
 
-    const escuroAtivo = document.body.classList.contains("modo-escuro");
-    botaoTema.textContent = escuroAtivo ? "Modo claro" : "Modo escuro";
-    botaoTema.setAttribute("aria-pressed", escuroAtivo.toString());
-});
+// MENU HAMBURGUER
+const botaoMenu = document.querySelector("#botaoMenu");
+const menu = document.querySelector(".menu");
 
+if (botaoMenu && menu) {
+    botaoMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.classList.toggle("aberto");
+        
+        const menuAberto = menu.classList.contains("aberto");
+        botaoMenu.textContent = menuAberto ? "✕" : "☰";
+        botaoMenu.setAttribute("aria-label", menuAberto ? "Fechar menu" : "Abrir menu");
+        botaoMenu.setAttribute("aria-expanded", menuAberto.toString());
+    });
+}
 
-// Abre e fecha o menu hamburger no celular.
-botaoMenu.addEventListener("click", () => {
-    menu.classList.toggle("aberto");
-
-    const menuAberto = menu.classList.contains("aberto");
-    botaoMenu.textContent = menuAberto ? "×" : "☰";
-    botaoMenu.setAttribute("aria-label", menuAberto ? "Fechar menu" : "Abrir menu");
-    botaoMenu.setAttribute("aria-expanded", menuAberto.toString());
-});
-
-// Fecha o menu depois que a pessoa escolhe uma seção.
+// Fecha o menu ao clicar em um link
 document.querySelectorAll(".links-menu a").forEach((link) => {
     link.addEventListener("click", () => {
-        menu.classList.remove("aberto");
-        botaoMenu.textContent = "☰";
-        botaoMenu.setAttribute("aria-label", "Abrir menu");
-        botaoMenu.setAttribute("aria-expanded", "false");
+        if (menu && window.innerWidth <= 900) {
+            menu.classList.remove("aberto");
+            if (botaoMenu) {
+                botaoMenu.textContent = "☰";
+                botaoMenu.setAttribute("aria-label", "Abrir menu");
+                botaoMenu.setAttribute("aria-expanded", "false");
+            }
+        }
     });
 });
 
-// Formulário de participação: mostra uma confirmação personalizada na própria página.
-formularioMensagem.addEventListener("submit", (evento) => {
-    evento.preventDefault();
-
-    const nome = nomeVisitante.value.trim();
-    const mensagem = mensagemVisitante.value.trim();
-
-    if (nome === "" || mensagem === "") {
-        retornoFormulario.textContent = "Preencha seu nome e sua mensagem antes de enviar.";
-        return;
+// Fecha o menu ao clicar fora dele (apenas mobile)
+document.addEventListener("click", (evento) => {
+    const isMobile = window.innerWidth <= 900;
+    if (isMobile && menu && menu.classList.contains("aberto")) {
+        if (!menu.contains(evento.target) && evento.target !== botaoMenu && !botaoMenu?.contains(evento.target)) {
+            menu.classList.remove("aberto");
+            if (botaoMenu) {
+                botaoMenu.textContent = "☰";
+                botaoMenu.setAttribute("aria-label", "Abrir menu");
+                botaoMenu.setAttribute("aria-expanded", "false");
+            }
+        }
     }
-
-    retornoFormulario.textContent = `Mensagem enviada! Obrigado pela participação, ${nome}. Sua ideia ajuda a fortalecer um futuro mais sustentável.`;
-    formularioMensagem.reset();
 });
 
+// Fecha o menu ao redimensionar para desktop
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 900 && menu && menu.classList.contains("aberto")) {
+        menu.classList.remove("aberto");
+        if (botaoMenu) {
+            botaoMenu.textContent = "☰";
+            botaoMenu.setAttribute("aria-label", "Abrir menu");
+            botaoMenu.setAttribute("aria-expanded", "false");
+        }
+    }
+});
+
+// Formulário de participação
+if (formularioMensagem) {
+    formularioMensagem.addEventListener("submit", (evento) => {
+        evento.preventDefault();
+
+        const nome = nomeVisitante?.value.trim() || "";
+        const mensagem = mensagemVisitante?.value.trim() || "";
+
+        if (nome === "" || mensagem === "") {
+            if (retornoFormulario) {
+                retornoFormulario.textContent = "Preencha seu nome e sua mensagem antes de enviar.";
+            }
+            return;
+        }
+
+        if (retornoFormulario) {
+            retornoFormulario.textContent = `Mensagem enviada! Obrigado pela participação, ${nome}. Sua ideia ajuda a fortalecer um futuro mais sustentável.`;
+        }
+        if (formularioMensagem) {
+            formularioMensagem.reset();
+        }
+    });
+}

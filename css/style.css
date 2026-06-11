@@ -1,22 +1,19 @@
-/* Reset simples: remove margens padrão e facilita o cálculo dos tamanhos. */
+/* Reset simples */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Variável usada pelo JavaScript para aumentar ou diminuir as letras. */
 :root {
     --tamanho-fonte: 100%;
 }
 
-/* Rolagem suave quando clicar nos links do menu. */
 html {
     font-size: var(--tamanho-fonte);
     scroll-behavior: smooth;
 }
 
-/* Estilo geral do corpo do site. Altere a fonte aqui se quiser. */
 body {
     background: #f4f7ef;
     color: #1f2a24;
@@ -25,19 +22,16 @@ body {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Modo escuro: ativado pelo botão de acessibilidade no JavaScript. */
 body.modo-escuro {
     background: #101510;
     color: #edf5ea;
 }
 
-/* Imagens responsivas para nao estourarem a tela do celular. */
 img {
     display: block;
     max-width: 100%;
 }
 
-/* Botões com visual parecido no site inteiro. */
 button {
     border: 0;
     border-radius: 8px;
@@ -45,12 +39,12 @@ button {
     font: inherit;
 }
 
-/* Menu fixo no topo. */
+/* ── Menu ── */
 .menu {
     align-items: center;
     background: rgba(20, 49, 33, 0.92);
     display: flex;
-    gap: 24px;
+    gap: 16px;
     justify-content: space-between;
     left: 0;
     padding: 14px 6%;
@@ -58,9 +52,9 @@ button {
     right: 0;
     top: 0;
     z-index: 10;
+    flex-wrap: wrap;
 }
 
-/* Nome do projeto no menu. */
 .marca {
     align-items: center;
     color: #ffffff;
@@ -71,7 +65,6 @@ button {
     white-space: nowrap;
 }
 
-/* Logo do Agrinho no cabeçalho. */
 .logo-agrinho {
     border: 2px solid #ffffff;
     border-radius: 50%;
@@ -80,46 +73,77 @@ button {
     width: 46px;
 }
 
-/* Grupo de links do menu. */
+/* Menu interno - visível por padrão no desktop */
+.menu-interno {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 .links-menu {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
-    justify-content: flex-end;
 }
 
-/* Links do menu. */
 .links-menu a {
     color: #eef7e7;
     font-size: 0.95rem;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
-/* Área dos botões de acessibilidade. */
+.links-menu a:hover {
+    color: #f3c84b;
+}
+
 .acessibilidade {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    justify-content: flex-end;
 }
 
-/* Botões de acessibilidade. */
 .acessibilidade button {
     background: #ffffff;
     color: #143121;
     font-weight: 800;
     min-height: 38px;
     padding: 8px 10px;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
-/* Destaque visual ao navegar pelo teclado. */
+.acessibilidade button:hover {
+    transform: translateY(-2px);
+    background: #f3c84b;
+}
+
+/* Botão hamburger - escondido no desktop */
+.btn-menu-mobile {
+    background: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    color: #ffffff;
+    display: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-menu-mobile:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
 a:focus-visible,
 button:focus-visible {
     outline: 3px solid #f3c84b;
     outline-offset: 3px;
 }
 
-/* Primeira tela com imagem de fundo. Troque a URL para mudar a foto principal. */
+/* ── Hero ── */
 .hero {
     align-items: center;
     background:
@@ -132,7 +156,6 @@ button:focus-visible {
     position: relative;
 }
 
-/* Camada de ceu animado, deixando a luz mudar devagar. */
 .ceu-animado {
     animation: mudarCeu 9s infinite alternate;
     background: linear-gradient(120deg, rgba(255, 223, 136, 0.22), rgba(126, 210, 255, 0.18));
@@ -141,7 +164,6 @@ button:focus-visible {
     position: absolute;
 }
 
-/* Conteudo escrito do hero. */
 .hero-conteudo {
     color: #ffffff;
     max-width: 760px;
@@ -149,7 +171,6 @@ button:focus-visible {
     z-index: 2;
 }
 
-/* Etiquetas pequenas de cada secao. */
 .etiqueta {
     color: #f3c84b;
     font-size: 0.84rem;
@@ -158,7 +179,6 @@ button:focus-visible {
     text-transform: uppercase;
 }
 
-/* Título principal. */
 .hero h1 {
     font-size: clamp(2.4rem, 7vw, 5.8rem);
     line-height: 1;
@@ -166,13 +186,11 @@ button:focus-visible {
     max-width: 780px;
 }
 
-/* Texto do hero. */
 .hero p {
     font-size: 1.15rem;
     max-width: 620px;
 }
 
-/* Grupo dos botões rápidos. */
 .botoes-rapidos {
     display: flex;
     flex-wrap: wrap;
@@ -180,12 +198,9 @@ button:focus-visible {
     margin-top: 28px;
 }
 
-/* Botões rápidos do topo. */
 .botoes-rapidos button,
 .botao-transformar,
-.grade-modais button,
-.bloco-problema button,
-.bloco-solucao button {
+.grade-modais button {
     background: #f3c84b;
     color: #1f2a24;
     font-weight: 800;
@@ -193,17 +208,21 @@ button:focus-visible {
     transition: transform 0.2s ease, background 0.2s ease;
 }
 
-/* Efeito ao passar o mouse em botões. */
 .botoes-rapidos button:hover,
 .botao-transformar:hover,
-.grade-modais button:hover,
-.bloco-problema button:hover,
-.bloco-solucao button:hover {
+.grade-modais button:hover {
     background: #ffe07a;
     transform: translateY(-2px);
 }
 
-/* Folhas animadas no hero. */
+/* Folhas animadas */
+.folhas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
 .folhas span {
     animation: cairFolha 8s linear infinite;
     background: #8fc34a;
@@ -215,13 +234,12 @@ button:focus-visible {
     z-index: 1;
 }
 
-/* Posicoes diferentes para cada folha. */
 .folhas span:nth-child(1) { left: 18%; animation-delay: 0s; }
 .folhas span:nth-child(2) { left: 44%; animation-delay: 2s; }
 .folhas span:nth-child(3) { left: 68%; animation-delay: 4s; }
 .folhas span:nth-child(4) { left: 84%; animation-delay: 1s; }
 
-/* Trator decorativo feito com CSS. */
+/* Trator */
 .trator {
     animation: moverTrator 12s linear infinite;
     bottom: 36px;
@@ -232,7 +250,6 @@ button:focus-visible {
     z-index: 3;
 }
 
-/* Partes do trator. */
 .corpo-trator {
     background: #d6512f;
     border-radius: 8px;
@@ -275,32 +292,29 @@ button:focus-visible {
     width: 38px;
 }
 
-/* Estrutura padrão das seções. */
+/* ── Seções ── */
 .secao {
     padding: 76px 6%;
 }
 
-/* Cabecalho de cada secao. */
 .cabecalho-secao {
     margin: 0 auto 34px;
     max-width: 860px;
     text-align: center;
 }
 
-/* Títulos das seções. */
 .cabecalho-secao h2 {
     font-size: clamp(2rem, 4vw, 3.3rem);
     line-height: 1.1;
     margin: 8px 0 14px;
 }
 
-/* Texto das secoes. */
 .cabecalho-secao p:last-child {
     color: #526257;
     font-size: 1.05rem;
 }
 
-/* Painel do gráfico. */
+/* Gráfico */
 .painel-grafico {
     background: #ffffff;
     border: 1px solid #dfe8d8;
@@ -310,7 +324,6 @@ button:focus-visible {
     padding: 24px;
 }
 
-/* Área do gráfico de barras. */
 .grafico {
     align-items: end;
     display: grid;
@@ -319,7 +332,6 @@ button:focus-visible {
     height: 300px;
 }
 
-/* Barra individual do gráfico. */
 .barra {
     align-items: center;
     animation: subirBarra 1.2s ease-out forwards;
@@ -334,7 +346,6 @@ button:focus-visible {
     transform-origin: bottom;
 }
 
-/* Textos dentro da barra. */
 .barra span,
 .barra strong {
     color: #ffffff;
@@ -342,11 +353,10 @@ button:focus-visible {
     text-align: center;
 }
 
-/* Observação abaixo do gráfico. */
 .observacao {
     background: #f1efff;
     border-left: 6px solid #6d5bd0;
-    border-radius: 8px;
+    border-radius: 0 8px 8px 0;
     color: #667066;
     font-size: 0.95rem;
     margin-top: 18px;
@@ -354,21 +364,13 @@ button:focus-visible {
     text-align: left;
 }
 
-/* Título da explicação do gráfico. */
-.observacao h3 {
-    color: #31225f;
-    font-size: 1.1rem;
-    margin-bottom: 6px;
-}
-
-/* Grade de cards da produção. */
+/* Cards produção */
 .grade-cards {
     display: grid;
     gap: 18px;
     grid-template-columns: repeat(3, 1fr);
 }
 
-/* Card da produção agrícola. */
 .card-info {
     background: #ffffff;
     border: 1px solid #dfe8d8;
@@ -376,31 +378,27 @@ button:focus-visible {
     overflow: hidden;
 }
 
-/* Imagem do card. */
 .card-info img {
     aspect-ratio: 4 / 3;
     object-fit: cover;
     width: 100%;
 }
 
-/* Texto interno do card. */
 .card-info div {
     padding: 18px;
 }
 
-/* Título do card. */
 .card-info h3 {
     font-size: 1.25rem;
     margin-bottom: 10px;
 }
 
-/* Paragrafos do card. */
 .card-info p {
     color: #526257;
     margin-top: 8px;
 }
 
-/* Mini painel climático. */
+/* Clima */
 .clima {
     background: #143121;
     border-radius: 8px;
@@ -412,46 +410,29 @@ button:focus-visible {
     padding: 24px;
 }
 
-/* Explicação do quadro verde do clima. */
-.explicacao-clima {
-    grid-column: 1 / -1;
-}
-
-.explicacao-clima span {
-    color: #f3c84b;
-    display: block;
-    font-size: 1.2rem;
-    font-weight: 800;
-    margin-bottom: 6px;
-}
-
-/* Itens do painel climático. */
 .clima div {
     background: rgba(255, 255, 255, 0.09);
     border-radius: 8px;
     padding: 18px;
 }
 
-/* Numeros do clima. */
 .clima strong {
     display: block;
     font-size: 2rem;
     margin: 4px 0;
 }
 
-/* Seção que aprofunda Brasil, Paraná e Manoel Ribas. */
+/* Contexto Brasil/Paraná */
 .contexto-brasil-parana {
     background: #ffffff;
 }
 
-/* Grade dos cards de contexto. */
 .grade-contexto {
     display: grid;
     gap: 18px;
     grid-template-columns: repeat(3, 1fr);
 }
 
-/* Card de contexto nacional, estadual e local. */
 .grade-contexto article {
     background: #f4f7ef;
     border: 1px solid #dfe8d8;
@@ -470,12 +451,11 @@ button:focus-visible {
     margin-top: 8px;
 }
 
-/* Fundo da secao sustentabilidade. */
+/* Sustentabilidade */
 .sustentabilidade {
     background: #e8efe3;
 }
 
-/* Cenario seco/verde. */
 .cenario {
     background: linear-gradient(#b8b8b8 0 45%, #8d7a5e 45% 100%);
     border: 1px solid #cbd8c0;
@@ -488,12 +468,10 @@ button:focus-visible {
     transition: background 0.8s ease;
 }
 
-/* Estado transformado do cenario. */
 .cenario.transformado {
     background: linear-gradient(#9ddcf5 0 45%, #5caa55 45% 100%);
 }
 
-/* Sol do cenario. */
 .sol {
     background: #f3c84b;
     border-radius: 50%;
@@ -504,7 +482,6 @@ button:focus-visible {
     width: 82px;
 }
 
-/* Fumaca que desaparece na transformacao. */
 .fumaca {
     background: rgba(80, 80, 80, 0.65);
     border-radius: 50%;
@@ -517,13 +494,11 @@ button:focus-visible {
     width: 54px;
 }
 
-/* Some com a fumaca quando o cenario esta verde. */
 .cenario.transformado .fumaca {
     opacity: 0;
     transform: translateY(-30px);
 }
 
-/* Faixa de terra do cenario. */
 .terra {
     background: rgba(80, 56, 31, 0.36);
     bottom: 0;
@@ -533,7 +508,6 @@ button:focus-visible {
     right: 0;
 }
 
-/* Arvores do cenario. */
 .arvores span {
     background: #2f7b3a;
     border-radius: 60% 60% 45% 45%;
@@ -546,7 +520,6 @@ button:focus-visible {
     width: 52px;
 }
 
-/* Troncos das arvores. */
 .arvores span::after {
     background: #7b4a29;
     bottom: -44px;
@@ -557,23 +530,19 @@ button:focus-visible {
     width: 9px;
 }
 
-/* Posicoes das arvores. */
 .arvores span:nth-child(1) { left: 34%; }
 .arvores span:nth-child(2) { left: 52%; }
 .arvores span:nth-child(3) { left: 72%; }
 
-/* Crescimento das arvores depois do clique. */
 .cenario.transformado .arvores span {
     transform: scaleY(1.9);
 }
 
-/* Botao transformar centralizado. */
 .botao-transformar {
     display: block;
     margin: 0 auto 24px;
 }
 
-/* Botões que abrem os modais. */
 .grade-modais {
     display: flex;
     flex-wrap: wrap;
@@ -581,83 +550,17 @@ button:focus-visible {
     justify-content: center;
 }
 
-/* Fundo da seção de problemas e soluções. */
-.problemas {
-    background: #f8fbff;
-}
-
-/* Painel principal da seção de problemas. */
-.painel-problemas {
-    align-items: stretch;
-    display: grid;
-    gap: 22px;
-    grid-template-columns: minmax(260px, 0.9fr) minmax(280px, 1.1fr);
-    margin: 0 auto 24px;
-    max-width: 1080px;
-}
-
-/* Imagem ilustrativa dos problemas e soluções. */
-.painel-problemas img {
-    border-radius: 8px;
-    height: 100%;
-    min-height: 360px;
-    object-fit: cover;
-    width: 100%;
-}
-
-/* Coluna com problema e solução lado a lado. */
-.comparativo-problemas {
-    display: grid;
-    gap: 18px;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-/* Blocos da comparação. */
-.bloco-problema,
-.bloco-solucao {
-    background: #ffffff;
-    border: 1px solid #d7e8ef;
-    border-radius: 8px;
-    padding: 22px;
-}
-
-/* Destaque visual diferente para problema e solução. */
-.bloco-problema {
-    border-top: 6px solid #c44a35;
-}
-
-.bloco-solucao {
-    border-top: 6px solid #5d9d46;
-}
-
-/* Títulos dos blocos de comparação. */
-.bloco-problema h3,
-.bloco-solucao h3 {
-    font-size: 1.35rem;
-    margin-bottom: 12px;
-}
-
-/* Listas dos blocos. */
-.bloco-problema ul,
-.bloco-solucao ul {
-    display: grid;
-    gap: 10px;
-    margin: 0 0 18px 18px;
-}
-
-/* Fundo da secao cidade. */
+/* ── Cidade ── */
 .cidade {
     background: #fff8e7;
 }
 
-/* Antes e depois da cidade. */
 .antes-depois {
     display: grid;
     gap: 18px;
     grid-template-columns: repeat(2, 1fr);
 }
 
-/* Dados reais de Manoel Ribas. */
 .dados-cidade {
     display: grid;
     gap: 18px;
@@ -665,31 +568,6 @@ button:focus-visible {
     margin: 26px 0;
 }
 
-/* Linha do tempo de Manoel Ribas. */
-.linha-tempo-cidade {
-    display: grid;
-    gap: 18px;
-    grid-template-columns: repeat(3, 1fr);
-    margin: 26px 0;
-}
-
-/* Cada marco histórico da linha do tempo. */
-.linha-tempo-cidade article {
-    background: #143121;
-    border-radius: 8px;
-    color: #ffffff;
-    padding: 22px;
-}
-
-.linha-tempo-cidade span {
-    color: #f3c84b;
-    display: block;
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin-bottom: 8px;
-}
-
-/* Cards extras de identidade local. */
 .identidade-local {
     display: grid;
     gap: 18px;
@@ -714,7 +592,6 @@ button:focus-visible {
     color: #526257;
 }
 
-/* Card de dado local. */
 .dados-cidade article {
     background: #ffffff;
     border: 1px solid #e4d7ad;
@@ -723,7 +600,6 @@ button:focus-visible {
     text-align: center;
 }
 
-/* Número principal do dado local. */
 .dados-cidade strong {
     color: #5d7f28;
     display: block;
@@ -732,13 +608,11 @@ button:focus-visible {
     margin-bottom: 8px;
 }
 
-/* Descrição do dado local. */
 .dados-cidade span {
     color: #526257;
     font-weight: 800;
 }
 
-/* Imagens do antes e depois. */
 .antes-depois img {
     aspect-ratio: 16 / 9;
     border-radius: 8px;
@@ -746,113 +620,44 @@ button:focus-visible {
     width: 100%;
 }
 
-/* Legenda das imagens. */
 .antes-depois figcaption {
     color: #526257;
     font-weight: 800;
     margin-top: 8px;
 }
 
-/* Bloco das frases da comunidade. */
-.voz-comunidade {
-    display: grid;
-    gap: 18px;
-    grid-template-columns: repeat(2, 1fr);
-    margin: 26px 0;
-}
-
-/* Cada frase da comunidade. */
-.voz-comunidade blockquote {
-    background: #ffffff;
-    border-left: 6px solid #5d9d46;
-    border-radius: 8px;
-    font-size: 1.25rem;
-    font-weight: 800;
-    padding: 22px;
-}
-
-/* Mapa local ilustrativo. */
 .mapa-local {
-    background: #e4edc9;
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
     border: 2px solid #9eb56a;
     border-radius: 8px;
-    height: 360px;
-    margin: 0 auto;
-    max-width: 980px;
     overflow: hidden;
     position: relative;
+    aspect-ratio: 16 / 9;
+    min-height: 300px;
 }
 
-/* Rio desenhado no mapa. */
-.linha-rio {
-    background: #41bfd0;
-    height: 46px;
-    left: -8%;
+.mapa-local iframe {
     position: absolute;
-    top: 46%;
-    transform: rotate(-12deg);
-    width: 116%;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
 }
 
-/* Pontos do mapa. */
-.ponto {
-    background: #ffffff;
-    border: 2px solid #143121;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 800;
-    padding: 8px 10px;
-    position: absolute;
-}
-
-/* Posicoes de cada ponto do mapa. */
-.ponto-rio { left: 12%; top: 47%; }
-.ponto-verde { left: 18%; top: 18%; }
-.ponto-agro { right: 16%; top: 22%; }
-.ponto-escola { left: 44%; bottom: 18%; }
-.ponto-projeto { right: 10%; bottom: 14%; }
-
-/* Rodape do site. */
-.rodape {
-    align-items: center;
-    background: #143121;
-    color: #ffffff;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    padding: 24px 6%;
-    text-align: center;
-}
-
-/* Logo do colégio no rodapé. */
-.logo-colegio {
-    background: #ffffff;
-    border-radius: 8px;
-    max-height: 72px;
-    object-fit: contain;
-    padding: 6px;
-    width: auto;
-}
-
-/* Seção do formulário de participação. */
-.participacao {
-    background: #eef6ed;
-}
-
-/* Seção dos vídeos. */
+/* ── Vídeos ── */
 .videos {
     background: #f8fbff;
 }
 
-/* Grade dos vídeos. */
 .grade-videos {
     display: grid;
     gap: 18px;
     grid-template-columns: repeat(3, 1fr);
 }
 
-/* Card de vídeo. */
 .grade-videos article {
     background: #ffffff;
     border: 1px solid #d7e8ef;
@@ -860,16 +665,19 @@ button:focus-visible {
     overflow: hidden;
 }
 
-/* Área responsiva para o iframe do vídeo. */
 .video-responsivo {
     aspect-ratio: 16 / 9;
     background: #111811;
+    position: relative;
     width: 100%;
 }
 
 .video-responsivo iframe {
     border: 0;
     height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
     width: 100%;
 }
 
@@ -889,7 +697,11 @@ button:focus-visible {
     margin: 8px 0 18px;
 }
 
-/* Formulário para mensagem do visitante. */
+/* ── Participação ── */
+.participacao {
+    background: #eef6ed;
+}
+
 .formulario-mensagem {
     background: #ffffff;
     border: 1px solid #dfe8d8;
@@ -901,12 +713,10 @@ button:focus-visible {
     padding: 24px;
 }
 
-/* Textos dos campos do formulário. */
 .formulario-mensagem label {
     font-weight: 800;
 }
 
-/* Campos de nome e mensagem. */
 .formulario-mensagem input,
 .formulario-mensagem textarea {
     border: 1px solid #c8d6c1;
@@ -918,7 +728,6 @@ button:focus-visible {
     width: 100%;
 }
 
-/* Botão do formulário. */
 .formulario-mensagem button {
     background: #5d9d46;
     color: #ffffff;
@@ -926,19 +735,17 @@ button:focus-visible {
     padding: 12px 16px;
 }
 
-/* Mensagem de retorno depois do envio. */
 .retorno-formulario {
     color: #2f6b2d;
     font-weight: 800;
     min-height: 28px;
 }
 
-/* Seção das fontes dos dados reais. */
+/* ── Fontes ── */
 .fontes {
     background: #ffffff;
 }
 
-/* Lista de links das fontes. */
 .lista-fontes {
     display: grid;
     gap: 12px;
@@ -946,7 +753,6 @@ button:focus-visible {
     max-width: 900px;
 }
 
-/* Cada fonte aparece como um link organizado. */
 .lista-fontes a {
     background: #f4f7ef;
     border: 1px solid #dfe8d8;
@@ -957,7 +763,114 @@ button:focus-visible {
     text-decoration: none;
 }
 
-/* Ajustes de cores para o modo escuro. */
+/* Voltar ao topo */
+.voltar-topo {
+    align-items: center;
+    background: #f3c84b;
+    border-radius: 50%;
+    bottom: 28px;
+    color: #1f2a24;
+    display: flex;
+    font-size: 1.4rem;
+    font-weight: 900;
+    height: 52px;
+    justify-content: center;
+    line-height: 1;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    right: 24px;
+    text-decoration: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    width: 52px;
+    z-index: 99;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+.voltar-topo.visivel {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.voltar-topo:hover {
+    background: #ffe07a;
+    transform: translateY(-3px);
+}
+
+/* ── Rodapé ── */
+.rodape {
+    align-items: center;
+    background: #143121;
+    color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    padding: 24px 6%;
+    text-align: center;
+}
+
+.logo-colegio {
+    background: #ffffff;
+    border-radius: 8px;
+    max-height: 72px;
+    object-fit: contain;
+    padding: 6px;
+    width: auto;
+}
+
+/* ── Modal ── */
+.modal {
+    align-items: center;
+    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.78);
+    display: none;
+    inset: 0;
+    justify-content: center;
+    padding: 24px;
+    position: fixed;
+    z-index: 20;
+}
+
+body.modal-aberto {
+    overflow: hidden;
+}
+
+.modal.ativo {
+    display: flex;
+}
+
+.janela-modal {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+    max-width: 480px;
+    padding: 28px;
+    position: relative;
+    width: 100%;
+}
+
+.fechar-modal {
+    background: #143121;
+    color: #ffffff;
+    height: 34px;
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    width: 34px;
+}
+
+.janela-modal h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    padding-right: 42px;
+}
+
+.janela-modal p {
+    white-space: pre-line;
+}
+
+/* ── Modo escuro ── */
 body.modo-escuro .menu,
 body.modo-escuro .rodape {
     background: #071108;
@@ -965,7 +878,6 @@ body.modo-escuro .rodape {
 
 body.modo-escuro .producao,
 body.modo-escuro .contexto-brasil-parana,
-body.modo-escuro .problemas,
 body.modo-escuro .participacao,
 body.modo-escuro .fontes,
 body.modo-escuro .videos {
@@ -980,11 +892,8 @@ body.modo-escuro .cidade {
 body.modo-escuro .painel-grafico,
 body.modo-escuro .card-info,
 body.modo-escuro .grade-contexto article,
-body.modo-escuro .bloco-problema,
-body.modo-escuro .bloco-solucao,
-body.modo-escuro .voz-comunidade blockquote,
-body.modo-escuro .dados-cidade article,
 body.modo-escuro .identidade-local article,
+body.modo-escuro .dados-cidade article,
 body.modo-escuro .formulario-mensagem,
 body.modo-escuro .grade-videos article,
 body.modo-escuro .lista-fontes a,
@@ -1013,10 +922,8 @@ body.modo-escuro .observacao {
     border-left-color: #b7a6ff;
 }
 
-body.modo-escuro .observacao h3,
 body.modo-escuro .grade-contexto h3,
 body.modo-escuro .dados-cidade strong,
-body.modo-escuro .dados-cidade span,
 body.modo-escuro .identidade-local h3 {
     color: #edf5ea;
 }
@@ -1029,185 +936,161 @@ body.modo-escuro .formulario-mensagem textarea {
 }
 
 body.modo-escuro .mapa-local {
-    background: #24351f;
     border-color: #536b45;
 }
 
-body.modo-escuro .ponto,
 body.modo-escuro .acessibilidade button {
     background: #edf5ea;
     color: #071108;
 }
 
-/* Fundo escuro do modal. */
-.modal {
-    align-items: center;
-    backdrop-filter: blur(4px);
-    background: rgba(0, 0, 0, 0.78);
-    display: none;
-    inset: 0;
-    justify-content: center;
-    padding: 24px;
-    position: fixed;
-    z-index: 20;
-}
-
-/* Escurece e trava visualmente a página quando o modal está aberto. */
-body.modal-aberto {
-    overflow: hidden;
-}
-
-/* Modal visivel. */
-.modal.ativo {
-    display: flex;
-}
-
-/* Janela branca do modal. */
-.janela-modal {
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
-    max-width: 480px;
-    padding: 28px;
-    position: relative;
-    width: 100%;
-}
-
-/* Botao X do modal. */
-.fechar-modal {
-    background: #143121;
-    color: #ffffff;
-    height: 34px;
-    position: absolute;
-    right: 14px;
-    top: 14px;
-    width: 34px;
-}
-
-/* Título do modal. */
-.janela-modal h3 {
-    font-size: 1.7rem;
-    margin-bottom: 10px;
-    padding-right: 42px;
-}
-
-/* Texto do modal aceita quebras de linha feitas no JavaScript. */
-.janela-modal p {
-    white-space: pre-line;
-}
-
-/* Animacao do ceu. */
+/* ── Animações ── */
 @keyframes mudarCeu {
     from { opacity: 0.35; }
     to { opacity: 0.9; }
 }
 
-/* Animacao das folhas. */
 @keyframes cairFolha {
-    from {
-        transform: translateY(-40px) rotate(0deg);
-    }
-    to {
-        transform: translateY(760px) rotate(360deg);
-    }
+    from { transform: translateY(-40px) rotate(0deg); }
+    to { transform: translateY(760px) rotate(360deg); }
 }
 
-/* Animacao do trator atravessando a tela. */
 @keyframes moverTrator {
     from { transform: translateX(0); }
     to { transform: translateX(calc(100vw + 240px)); }
 }
 
-/* Animacao das rodas do trator. */
 @keyframes girarRoda {
     to { transform: rotate(360deg); }
 }
 
-/* Animação do gráfico. */
 @keyframes subirBarra {
     from { transform: scaleY(0); }
     to { transform: scaleY(1); }
 }
 
-/* Ajustes para tablets. */
+/* ── Responsivo Tablets (≤900px) ── */
 @media (max-width: 900px) {
     .menu {
-        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 12px 5%;
+    }
+    
+    .btn-menu-mobile {
+        display: block;
+    }
+    
+    .menu-interno {
+        display: none;
         flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        padding-top: 20px;
+        gap: 16px;
     }
-
+    
+    .menu.aberto .menu-interno {
+        display: flex;
+    }
+    
+    .links-menu {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .links-menu a {
+        display: block;
+        padding: 8px 0;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .acessibilidade {
+        justify-content: center;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
     .hero {
-        padding-top: 160px;
+        padding-top: 100px;
     }
-
+    
     .grade-cards,
     .clima,
     .dados-cidade,
-    .painel-problemas {
+    .antes-depois,
+    .grade-contexto,
+    .identidade-local,
+    .grade-videos {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .comparativo-problemas {
-        grid-template-columns: 1fr;
+    
+    .grafico {
+        height: 220px;
+    }
+    
+    .barra {
+        padding: 8px 3px;
+    }
+    
+    .barra span,
+    .barra strong {
+        font-size: 0.72rem;
     }
 }
 
-/* Ajustes para celular. */
+/* ── Responsivo Celular (≤620px) ── */
 @media (max-width: 620px) {
-    .links-menu {
-        gap: 10px;
-    }
-
-    .links-menu a {
-        font-size: 0.86rem;
-    }
-
-    .hero {
-        min-height: 100vh;
-        padding-bottom: 110px;
-    }
-
-    .grafico {
-        gap: 8px;
-        height: 250px;
-    }
-
-    .barra {
-        padding: 10px 4px;
-    }
-
-    .barra span,
-    .barra strong {
-        font-size: 0.78rem;
-    }
-
     .grade-cards,
     .clima,
     .dados-cidade,
-    .painel-problemas,
-    .comparativo-problemas,
     .antes-depois,
-    .voz-comunidade {
+    .grade-contexto,
+    .identidade-local,
+    .grade-videos {
         grid-template-columns: 1fr;
     }
-
-    .painel-problemas img {
-        min-height: 260px;
+    
+    .grafico {
+        gap: 6px;
     }
-
+    
     .mapa-local {
-        height: 430px;
+        min-height: 250px;
     }
+    
+    .voltar-topo {
+        bottom: 20px;
+        height: 46px;
+        right: 16px;
+        width: 46px;
+        font-size: 1.2rem;
+    }
+}
+/* Estilo extra para os vídeos - garante que funcionem bem */
+.video-responsivo {
+    aspect-ratio: 16 / 9;
+    background: #000000;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+}
 
-    .ponto {
-        font-size: 0.78rem;
-    }
+.video-responsivo iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
 
-    .ponto-agro {
-        right: 6%;
-    }
+/* Remove qualquer estilo de poster que possa ter sobrado */
+.video-poster {
+    position: relative;
+}
 
-    .ponto-projeto {
-        right: 5%;
-    }
+.video-poster .play-video {
+    display: none;
 }
